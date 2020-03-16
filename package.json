@@ -1,0 +1,31 @@
+{
+  "name": "covid19-iceland",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start:api": "nodemon -e '.ts' -x 'babel-node -x '.ts' api/index.ts'",
+    "test": "jest -i"
+  },
+  "dependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/node": "7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-typescript": "7.8.3",
+    "express": "4.17.1",
+    "isomorphic-unfetch": "^3.0.0",
+    "ramda": "0.27.0",
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {
+    "@types/express": "4.17.3",
+    "@types/jest": "^25.1.4",
+    "@types/node": "13.9.1",
+    "@types/ramda": "0.26.44",
+    "core-js": "3.6.4",
+    "html-loader-jest": "^0.2.1",
+    "jest": "^25.1.0",
+    "nodemon": "^2.0.2"
+  },
+  "keywords": []
+}
