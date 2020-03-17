@@ -6,23 +6,24 @@ import {
   isValidFormat,
   createStructure
 } from './utils';
+import { InfographicData } from './types';
 
 const URL = 'https://infogram.com/covid-19-tolfraedi-1h1749mm0jyl6zj';
 
-const getRemoteData: GetRemoteDataFn = async () => {
+const getRemoteData = async () => {
   const data = await fetch(URL);
   const text = await data.text();
 
   return text;
 };
 
-const parseData: ParseDataFn = (data: string) => {
+const parseData = (data: string) => {
   const match = data.match(/<script>window\.infographicData=(.*);<\/script>/);
 
   return match && JSON.parse(match[1]);
 };
 
-const structureData: StructureDataFn = (data: InfographicData) => {
+const structureData = (data: InfographicData) => {
   const entities = Object.entries(
     R.pathOr({}, ['elements', 'content', 'content', 'entities'], data)
   );
@@ -36,7 +37,7 @@ const structureData: StructureDataFn = (data: InfographicData) => {
   return Object.fromEntries(json);
 };
 
-const getData = async () => {
+const getData = async (): Promise<CoronaCountryStats> => {
   const data = await getRemoteData();
 
   return R.compose(structureData, parseData)(data);

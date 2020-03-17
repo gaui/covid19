@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "WindowResizer",
+  "description": "Resize all windows",
+  "version": "1.0.1",
+  "author": "Gudjon Jonson",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_title": "Resize all windows",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["tabs", "activeTab"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  }
+}
