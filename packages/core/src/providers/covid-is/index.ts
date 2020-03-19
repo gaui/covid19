@@ -7,11 +7,10 @@ import {
   createStructure
 } from './utils';
 import { InfographicData } from './types';
-
-const URL = 'https://infogram.com/covid-19-tolfraedi-1h1749mm0jyl6zj';
+import config from './config';
 
 const getRemoteData = async () => {
-  const data = await fetch(URL);
+  const data = await fetch(config.url);
   const text = await data.text();
 
   return text;
@@ -37,7 +36,7 @@ const structureData = (data: InfographicData) => {
   return Object.fromEntries(json);
 };
 
-const getData = async (): Promise<CoronaCountryStats> => {
+const getData = async (): Promise<Covid19ProviderCountryStats> => {
   const data = await getRemoteData();
 
   return R.compose(structureData, parseData)(data);

@@ -1,4 +1,4 @@
-export interface CoronaCases {
+export interface Covid19Stats {
   infected: number;
   samples: number;
   quarantined: number;

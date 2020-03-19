@@ -1,4 +1,5 @@
 import R from 'ramda';
+import { Entity } from './types';
 
 const labelMap = {
   'staðfest smit': 'infected',

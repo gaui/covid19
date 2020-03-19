@@ -1,4 +1,4 @@
-interface CoronaCountryStats {
+interface Covid19ProviderCountryStats {
   country: string;
   cases: number;
   todayCases: number;
@@ -6,4 +6,8 @@ interface CoronaCountryStats {
   todayDeaths: number;
   recovered: number;
   critical: number;
+}
+
+interface Covid19ProviderConfig {
+  url: string;
 }

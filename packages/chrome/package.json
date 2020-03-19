@@ -1,0 +1,10 @@
+{
+  "name": "@gaui/covid19-chrome",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chrome": "^0.0.101",
+    "@types/node": "^13.9.2"
+  }
+}
