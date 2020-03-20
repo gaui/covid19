@@ -2,7 +2,7 @@ import { getData as covidExt } from './covid-ext';
 import { getData as covidIs } from './covid-is';
 import * as R from 'ramda';
 
-const providers = [covidExt, covidIs];
+const providers = [covidExt];
 
 const getData = async () => {
   const providerData = await Promise.all(providers.map(p => p()));
