@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-unfetch';
+import fetch from '../../utils';
 import R from 'ramda';
 import {
   getObjectChildTree,

@@ -4,6 +4,7 @@
     "module": "esnext",
     "target": "es2019",
     "lib": ["es2019", "dom"],
+    "jsx": "react",
     "sourceMap": true,
     "declaration": true,
     "moduleResolution": "node",
@@ -19,5 +20,5 @@
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
-  },
+  }
 }

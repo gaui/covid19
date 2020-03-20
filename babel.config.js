@@ -3,7 +3,11 @@ const babelDefaultEnvOpts = {
   useBuiltIns: 'usage'
 };
 
-const presets = [['@babel/env', babelDefaultEnvOpts], '@babel/typescript'];
+const presets = [
+  ['@babel/env', babelDefaultEnvOpts],
+  '@babel/typescript',
+  '@babel/react'
+];
 
 const plugins = [];
 

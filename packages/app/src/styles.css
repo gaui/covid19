@@ -1,4 +1,6 @@
 :root {
+  --width: 100vw;
+  --height: 100vh;
   --white: #ffffff;
   --bg: #222222;
   --gold: #453d30;
@@ -6,42 +8,47 @@
 }
 
 body {
+  margin: 20px;
   background-color: var(--bg);
+  color: var(--white);
   font-family: 'Lato', sans-serif;
   font-weight: 300;
   font-size: 10px;
-  color: var(--white);
-  min-width: 500px;
 }
 
 header {
   color: var(--orange);
-  padding: 2rem 0 4rem 0;
-  font-size: 10vw;
-  font-weight: 400;
+  padding: 0 0 2rem 0;
+  font-size: 6rem;
+  font-weight: 200;
   text-align: center;
 }
 
 footer {
   position: absolute;
   box-sizing: content-box;
-  padding: 0.5em;
+  padding: 0.5rem;
   filter: opacity(30%);
   right: 0;
   bottom: 0;
 }
 
+#app {
+  max-width: var(--width);
+  max-height: var(--height);
+  margin: auto;
+}
+
 .wrapper {
   display: grid;
-  min-height: 20vh;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, auto));
+  grid-template-columns: repeat(auto-fit, minmax(10em, auto));
   grid-gap: 2em;
   align-items: center;
   text-align: center;
 }
 
 .wrapper>div {
-  font-size: 2em;
+  font-size: 1.5em;
   filter: contrast(80%);
   border-top: 1px solid var(--gold);
   border-radius: 10px;
@@ -57,23 +64,24 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--white);
   font-size: 2em;
+  font-weight: 300;
   padding: 0.1em;
   border-radius: 0 0 10px 10px;
   background-color: var(--gold);
   border-top: 0;
 }
 
-@media (max-width: 617px) {
-  .wrapper {
-    grid-template-columns: repeat(auto-fit, minmax(7rem, auto));
-    grid-gap: 2em;
-    font-size: 0.5em;
+@media (max-width: 568px) {
+  header {
+    font-size: 3rem;
+    padding-bottom: 2rem;
   }
 }
 
-@media (max-width: 865px) {
-  header {
-    padding: .5em;
+@media (min-width: 411px) and (min-height: 730px) {
+  .wrapper {
+    font-size: 1.5em;
   }
 }

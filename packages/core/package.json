@@ -1,7 +1,5 @@
 {
   "name": "@gaui/covid19-core",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "keywords": []
+  "description": ""
 }

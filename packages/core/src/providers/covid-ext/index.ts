@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-unfetch';
+import fetch from '../../utils';
 import config from './config';
 
 const getData = async (): Promise<Covid19ProviderCountryStats> => {
