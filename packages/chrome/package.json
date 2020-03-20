@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "start": "parcel src/app.html",
+    "build": "rm -rf dist/ && parcel build src/app.html src/background.ts && cp public/* dist/"
+  },
   "devDependencies": {
     "@types/chrome": "^0.0.101",
     "@types/node": "^13.9.2"

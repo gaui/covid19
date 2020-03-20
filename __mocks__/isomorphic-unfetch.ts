@@ -1,8 +1,6 @@
-import fetch from 'isomorphic-unfetch';
-
 let data: any = null;
 
-const fn: typeof fetch = jest.fn(() => ({
+const fn: any = jest.fn(() => ({
   json: () => Promise.resolve(data),
   text: () => Promise.resolve(data)
 }));

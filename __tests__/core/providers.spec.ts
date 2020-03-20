@@ -17,7 +17,7 @@ describe('Provider tests', () => {
       getData = (await import('@gaui/covid19-core/src/providers/covid-is'))
         .getData;
       mockData = (await import('./covid-is.data.html')).default;
-      fetch.setup(mockData);
+      (fetch as any).setup(mockData);
     });
 
     it('should get raw data and transform infographic data', async () => {
@@ -43,7 +43,7 @@ describe('Provider tests', () => {
       ).default;
       getData = (await import('@gaui/covid19-core/src/providers/covid-ext'))
         .getData;
-      fetch.setup({
+      (fetch as any).setup({
         country: 'Iceland',
         cases: 199,
         todayCases: 19,

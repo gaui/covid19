@@ -4,7 +4,9 @@
     "packages/*"
   ],
   "scripts": {
-    "start:api": "nodemon -e '.ts' -x 'babel-node -x '.ts' api/index.ts'",
+    "start:api": "yarn workspace @gaui/covid19-api start",
+    "start:chrome": "yarn workspace @gaui/covid19-chrome start",
+    "build:chrome": "yarn workspace @gaui/covid19-chrome build",
     "test": "jest -i"
   },
   "dependencies": {
@@ -23,6 +25,7 @@
     "core-js": "3.6.4",
     "html-loader-jest": "^0.2.1",
     "jest": "^25.1.0",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "parcel": "^1.12.4"
   }
 }

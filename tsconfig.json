@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "module": "esnext",
     "target": "es2019",
-    "lib": ["es2019"],
+    "lib": ["es2019", "dom"],
     "sourceMap": true,
     "declaration": true,
     "moduleResolution": "node",

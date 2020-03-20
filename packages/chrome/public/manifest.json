@@ -1,13 +1,13 @@
 {
   "manifest_version": 2,
-  "name": "WindowResizer",
-  "description": "Resize all windows",
-  "version": "1.0.1",
-  "author": "Gudjon Jonson",
+  "name": "COVID-19",
+  "description": "COVID-19 stats",
+  "version": "1.0.0",
+  "author": "Gudjon Jonsson",
   "browser_action": {
-    "default_icon": "icon.png",
-    "default_title": "Resize all windows",
-    "default_popup": "popup.html"
+    "default_icon": "icon.svg",
+    "default_title": "COVID-19 stats",
+    "default_popup": "app.html"
   },
   "permissions": ["tabs", "activeTab"],
   "background": {
