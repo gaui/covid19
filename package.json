@@ -3,6 +3,11 @@
   "workspaces": [
     "packages/*"
   ],
+  "nohoist": [
+    "packages/api",
+    "packages/app",
+    "packages/chrome"
+  ],
   "scripts": {
     "start:app": "yarn workspace @gaui/covid19-app start",
     "build:app": "yarn workspace @gaui/covid19-app build",
