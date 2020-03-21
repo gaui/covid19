@@ -1,11 +1,11 @@
 import express from 'express';
-import { getData } from '@gaui/covid19-core/src/providers';
+import { provider } from '@gaui/covid19-core/src';
 
 const app = express();
 
 app.use(express.json());
 app.use('/', async (_, res) => {
-  const data = await getData();
+  const data = await provider();
   res.json(data);
 });
 
