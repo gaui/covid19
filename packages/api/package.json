@@ -13,6 +13,7 @@
     "build": "microbundle --target node"
   },
   "dependencies": {
+    "@gaui/covid19-core": "*",
     "express": "4.17.1"
   },
   "devDependencies": {

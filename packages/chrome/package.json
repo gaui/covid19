@@ -11,6 +11,9 @@
   "scripts": {
     "build": "microbundle --target node"
   },
+  "dependencies": {
+    "@gaui/covid19-core": "*"
+  },
   "devDependencies": {
     "@types/chrome": "^0.0.101",
     "@types/node": "^13.9.2"
