@@ -1,15 +1,24 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: './tsconfig.json'
+    project: './tsconfig.json',
+    ecmaFeatures: {
+      jsx: true
+    }
   },
   extends: [
     'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended',
     'plugin:prettier/recommended',
     'prettier',
     'prettier/@typescript-eslint'
   ],
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'eslint-plugin-react'],
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  },
   rules: {
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/no-use-before-define': ['error', 'nofunc'],
