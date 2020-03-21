@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ icon, count }: StatsCardProps) => {
+const StatsCard = ({ icon, count }: StatsCardProps) => {
   const Icon = require(`../svg/${icon}.svg`).default;
 
   return (
@@ -10,3 +10,7 @@ export default ({ icon, count }: StatsCardProps) => {
     </div>
   );
 };
+
+StatsCard.displayName = 'StatsCard';
+
+export default StatsCard;

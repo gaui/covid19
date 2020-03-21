@@ -3,7 +3,7 @@ import { provider } from '@gaui/covid19-core/src';
 import StatsCard from './StatsCard';
 import * as R from 'ramda';
 
-export default ({ interval }: StatsCardContainerProps) => {
+const StatsCardContainer = ({ interval }: StatsCardContainerProps) => {
   const [stats, setStats] = useState({} as Covid19ProviderCountryStats);
   const statsRef = useRef<Covid19ProviderCountryStats>();
   const intervalRef = useRef<NodeJS.Timeout>();
@@ -34,3 +34,7 @@ export default ({ interval }: StatsCardContainerProps) => {
     </div>
   );
 };
+
+StatsCardContainer.displayName = 'StatsCardContainer';
+
+export default StatsCardContainer;
