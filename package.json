@@ -4,6 +4,8 @@
     "packages/*"
   ],
   "scripts": {
+    "start:app": "yarn workspace @gaui/covid19-app start",
+    "build:app": "yarn workspace @gaui/covid19-app build",
     "start:api": "yarn workspace @gaui/covid19-api start",
     "start:chrome": "yarn workspace @gaui/covid19-chrome start",
     "build:chrome": "yarn workspace @gaui/covid19-chrome build",
