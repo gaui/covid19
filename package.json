@@ -1,4 +1,5 @@
 {
+  "name": "@gaui/covid19",
   "private": true,
   "workspaces": [
     "packages/*"
