@@ -1,5 +1,6 @@
 {
   "name": "@gaui/covid19-core",
   "version": "1.0.0",
-  "description": ""
+  "description": "",
+  "main": "dist/index.js"
 }
