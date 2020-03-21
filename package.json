@@ -8,7 +8,6 @@
     "build:app": "yarn workspace @gaui/covid19-app build",
     "start:api": "yarn workspace @gaui/covid19-api start",
     "build:api": "yarn workspace @gaui/covid19-api build",
-    "start:chrome": "yarn workspace @gaui/covid19-chrome start",
     "build:chrome": "yarn workspace @gaui/covid19-chrome build",
     "test": "jest -i",
     "test:ci": "jest -i --coverage",
@@ -37,6 +36,7 @@
     "core-js": "3.6.4",
     "html-loader-jest": "^0.2.1",
     "jest": "^25.1.0",
+    "microbundle": "^0.12.0-next.8",
     "nodemon": "^2.0.2",
     "webpack-dev-server": "^3.10.3"
   }
