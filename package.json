@@ -10,7 +10,13 @@
     "build:api": "yarn workspace @gaui/covid19-api build",
     "start:chrome": "yarn workspace @gaui/covid19-chrome start",
     "build:chrome": "yarn workspace @gaui/covid19-chrome build",
-    "test": "jest -i"
+    "test": "jest -i",
+    "test:ci": "jest -i --coverage",
+    "dts": "tsc --emitDeclarationOnly",
+    "lint": "eslint --ext .ts packages __tests__ __mocks__ --ignore-path .gitignore",
+    "format": "prettier \"./{packages,__tests__,__mocks__}/**/*.{js,jsx,ts,tsx,json,md}\" --write --ignore-path .gitignore",
+    "typecheck": "tsc --noEmit --pretty --skipLibCheck",
+    "vuln": "yarn audit --level high --no-progress --non-interactive --frozen-lockfile"
   },
   "dependencies": {
     "@babel/core": "^7.9.0",
