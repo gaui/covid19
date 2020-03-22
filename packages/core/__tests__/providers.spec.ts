@@ -11,11 +11,8 @@ describe('Provider tests', () => {
     let getData: () => Promise<Covid19ProviderCountryStats>;
 
     beforeAll(async () => {
-      config = (
-        await import('@gaui/covid19-core/src/providers/covid-is/config')
-      ).default;
-      getData = (await import('@gaui/covid19-core/src/providers/covid-is'))
-        .getData;
+      config = (await import('../src/providers/covid-is/config')).default;
+      getData = (await import('../src/providers/covid-is')).getData;
       mockData = (await import('./covid-is.data.html')).default;
       (fetch as any).setup(mockData);
     });
@@ -38,11 +35,8 @@ describe('Provider tests', () => {
     let getData: any;
 
     beforeAll(async () => {
-      config = (
-        await import('@gaui/covid19-core/src/providers/covid-ext/config')
-      ).default;
-      getData = (await import('@gaui/covid19-core/src/providers/covid-ext'))
-        .getData;
+      config = (await import('../src/providers/covid-ext/config')).default;
+      getData = (await import('../src/providers/covid-ext')).getData;
       (fetch as any).setup({
         country: 'Iceland',
         cases: 199,
