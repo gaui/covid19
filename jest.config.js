@@ -4,7 +4,7 @@
 module.exports = {
   testEnvironment: 'node',
   transform: {
-    '^.+\\.(ts|tsx)$': 'babel-jest',
+    '^.+\\.((j|t)sx?|svg|css)$': 'babel-jest',
     '^.+\\.html?$': 'html-loader-jest'
   },
   coverageDirectory: '.coverage',
