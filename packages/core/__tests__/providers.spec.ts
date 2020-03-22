@@ -1,8 +1,17 @@
-import fetch from 'isomorphic-unfetch';
+import fetchMock from 'jest-fetch-mock';
 
 describe('Provider tests', () => {
+  beforeAll(() => {
+    fetchMock.enableMocks();
+  });
+
+  afterAll(() => {
+    fetchMock.disableMocks();
+  });
+
   beforeEach(() => {
     jest.clearAllMocks();
+    fetchMock.mockClear();
   });
 
   describe('Provider (is)', () => {
@@ -14,7 +23,7 @@ describe('Provider tests', () => {
       config = (await import('../src/providers/covid-is/config')).default;
       getData = (await import('../src/providers/covid-is')).getData;
       mockData = (await import('./covid-is.data.html')).default;
-      (fetch as any).setup(mockData);
+      fetchMock.mockResponse(mockData);
     });
 
     it('should get raw data and transform infographic data', async () => {
@@ -37,15 +46,17 @@ describe('Provider tests', () => {
     beforeAll(async () => {
       config = (await import('../src/providers/covid-ext/config')).default;
       getData = (await import('../src/providers/covid-ext')).getData;
-      (fetch as any).setup({
-        country: 'Iceland',
-        cases: 199,
-        todayCases: 19,
-        deaths: 0,
-        todayDeaths: 0,
-        recovered: 0,
-        critical: 1
-      });
+      fetchMock.mockResponse(
+        JSON.stringify({
+          country: 'Iceland',
+          cases: 199,
+          todayCases: 19,
+          deaths: 0,
+          todayDeaths: 0,
+          recovered: 0,
+          critical: 1
+        })
+      );
     });
 
     it('should get data from API', async () => {
