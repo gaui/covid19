@@ -1,5 +1,4 @@
 import { getData as covidExt } from './covid-ext';
-import { getData as covidIs } from './covid-is';
 import * as R from 'ramda';
 
 const providers = [covidExt];
