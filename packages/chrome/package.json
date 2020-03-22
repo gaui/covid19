@@ -1,6 +1,7 @@
 {
   "name": "@gaui/covid19-chrome",
   "version": "1.0.0",
+  "private": true,
   "main": "dist/main.js",
   "source": "src/main.ts",
   "types": "dist/packages/chrome/src/main.d.ts",

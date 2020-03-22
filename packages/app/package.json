@@ -1,6 +1,7 @@
 {
   "name": "@gaui/covid19-app",
   "version": "1.0.0",
+  "private": true,
   "main": "dist/index.js",
   "source": "src/App.tsx",
   "author": "Gudjon Jonsson <gaui@gaui.is> (https://gaui.is)",
