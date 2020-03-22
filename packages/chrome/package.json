@@ -1,15 +1,13 @@
 {
   "name": "@gaui/covid19-chrome",
   "version": "1.0.0",
-  "main": "dist/index.js",
-  "umd:main": "dist/index.umd.js",
-  "module": "dist/index.mjs",
-  "source": "src/index.ts",
-  "types": "dist/index.d.ts",
+  "main": "dist/main.js",
+  "source": "src/main.ts",
+  "types": "dist/packages/chrome/src/main.d.ts",
   "author": "Gudjon Jonsson <gaui@gaui.is> (https://gaui.is)",
   "license": "MIT",
   "scripts": {
-    "build": "microbundle --target node"
+    "build": "microbundle --target node -i src/main.ts -i src/background.ts"
   },
   "dependencies": {
     "@gaui/covid19-core": "*"

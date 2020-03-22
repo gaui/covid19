@@ -1,6 +1,9 @@
 {
   "name": "@gaui/covid19-app",
   "version": "1.0.0",
+  "main": "dist/index.js",
+  "source": "src/App.tsx",
+  "author": "Gudjon Jonsson <gaui@gaui.is> (https://gaui.is)",
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server",
