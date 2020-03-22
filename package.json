@@ -10,11 +10,8 @@
     "packages/chrome"
   ],
   "scripts": {
-    "start:app": "yarn workspace @gaui/covid19-app start",
-    "build:app": "yarn workspace @gaui/covid19-app build",
-    "start:api": "yarn workspace @gaui/covid19-api start",
-    "build:api": "yarn workspace @gaui/covid19-api build",
-    "build:chrome": "yarn workspace @gaui/covid19-chrome build",
+    "install": "lerna bootstrap",
+    "build": "lerna run build --parallel",
     "test": "jest -i",
     "test:ci": "jest -i --coverage",
     "dts": "tsc --emitDeclarationOnly",
