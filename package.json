@@ -10,7 +10,7 @@
     "packages/chrome"
   ],
   "scripts": {
-    "install": "lerna bootstrap",
+    "install": "lerna bootstrap --use-workspaces",
     "build": "lerna run build --parallel",
     "test": "jest -i",
     "test:ci": "jest -i --coverage",
