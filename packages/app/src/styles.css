@@ -58,8 +58,11 @@ footer {
 
 .wrapper>div>svg {
   fill: var(--orange);
+  filter: sepia(100%);
   min-width: 4em;
   min-height: 7em;
+  max-width: 4em;
+  max-height: 7em;
 }
 
 .wrapper>div>div {

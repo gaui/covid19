@@ -2,15 +2,15 @@ import React, { useEffect, useState, useRef } from 'react';
 import StatsCard from './StatsCard';
 import * as R from 'ramda';
 import { createSVG } from '../utils/createSVG';
-import Infection from '../svg/infection.svg';
-import Quarantine from '../svg/quarantine.svg';
-import Isolation from '../svg/isolation.svg';
-import Hospital from '../svg/hospital.svg';
+import Cases from '../svg/cases.svg';
+import CasesToday from '../svg/casesToday.svg';
+import Critical from '../svg/critical.svg';
+import Recovered from '../svg/recovered.svg';
 
-const InfectionSVG = createSVG(Infection);
-const QuarantineSVG = createSVG(Quarantine);
-const IsolationSVG = createSVG(Isolation);
-const HospitalSVG = createSVG(Hospital);
+const CasesSVG = createSVG(Cases);
+const CasesTodaySVG = createSVG(CasesToday);
+const CriticalSVG = createSVG(Critical);
+const RecoveredSVG = createSVG(Recovered);
 
 const StatsCardContainer = ({
   interval,
@@ -45,10 +45,22 @@ const StatsCardContainer = ({
 
   return (
     <div className="wrapper" {...props}>
-      <StatsCard icon={<InfectionSVG />} count={cases} />
-      <StatsCard icon={<QuarantineSVG />} count={todayCases} />
-      <StatsCard icon={<IsolationSVG />} count={recovered} />
-      <StatsCard icon={<HospitalSVG />} count={critical} />
+      <StatsCard icon={<CasesSVG />} title="Total cases" count={cases} />
+      <StatsCard
+        icon={<CasesTodaySVG />}
+        title="Today's cases"
+        count={todayCases}
+      />
+      <StatsCard
+        icon={<CriticalSVG />}
+        title="Critical cases"
+        count={critical}
+      />
+      <StatsCard
+        icon={<RecoveredSVG />}
+        title="Recovered cases"
+        count={recovered}
+      />
     </div>
   );
 };
