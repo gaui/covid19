@@ -1,15 +1,18 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { provider } from '@gaui/covid19-core/src';
 import StatsCard from './StatsCard';
 import * as R from 'ramda';
 
-const StatsCardContainer = ({ interval }: StatsCardContainerProps) => {
+const StatsCardContainer = ({
+  interval,
+  provider,
+  ...props
+}: StatsCardContainerProps) => {
   const [stats, setStats] = useState({} as Covid19ProviderCountryStats);
   const statsRef = useRef<Covid19ProviderCountryStats>();
   const intervalRef = useRef<NodeJS.Timeout>();
 
   useEffect(() => {
-    const setStatsFn = async () => {
+    const updateFn = async () => {
       const data = await provider();
       if (!R.equals(statsRef.current, data)) {
         setStats(data);
@@ -17,20 +20,25 @@ const StatsCardContainer = ({ interval }: StatsCardContainerProps) => {
       }
     };
 
-    setStatsFn();
-    intervalRef.current = setInterval(setStatsFn, interval * 1000);
+    updateFn();
+
+    if (interval > 0) {
+      intervalRef.current = setInterval(updateFn, interval * 1000);
+    }
 
     return () => {
       intervalRef && intervalRef.current && clearInterval(intervalRef.current);
     };
-  }, []);
+  }, [interval]);
+
+  const { cases, todayCases, recovered, critical } = stats;
 
   return (
-    <div className="wrapper">
-      <StatsCard icon="infection" count={stats.cases} />
-      <StatsCard icon="quarantine" count={stats.todayCases} />
-      <StatsCard icon="isolation" count={stats.recovered} />
-      <StatsCard icon="hospital" count={stats.critical} />
+    <div className="wrapper" {...props}>
+      <StatsCard icon="infection" count={cases} />
+      <StatsCard icon="quarantine" count={todayCases} />
+      <StatsCard icon="isolation" count={recovered} />
+      <StatsCard icon="hospital" count={critical} />
     </div>
   );
 };

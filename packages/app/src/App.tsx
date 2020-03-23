@@ -12,7 +12,7 @@ if (window.chrome && chrome.runtime && chrome.runtime.id) {
 const App = () => (
   <>
     <header>COVID-19</header>
-    <StatsCardContainer interval={60} />
+    <StatsCardContainer interval={0} provider={provider} />
     <footer>© gaui.is</footer>
   </>
 );
