@@ -1,5 +1,6 @@
 import './styles.css';
 import ReactDOM from 'react-dom';
+import { provider } from '@gaui/covid19-core';
 import StatsCardContainer from './components/StatsCardContainer';
 import React from 'react';
 

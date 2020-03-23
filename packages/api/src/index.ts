@@ -1,5 +1,5 @@
 import express from 'express';
-import { provider } from '@gaui/covid19-core/src';
+import { provider } from '@gaui/covid19-core';
 
 const app = express();
 
