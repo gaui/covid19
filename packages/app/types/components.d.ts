@@ -2,4 +2,4 @@ type StatsCardContainerProps = {
   interval: number;
   provider: () => Promise<Covid19ProviderCountryStats>;
 };
-type StatsCardProps = { icon: string; count: number };
+type StatsCardProps = { icon: React.ReactElement; count: number };

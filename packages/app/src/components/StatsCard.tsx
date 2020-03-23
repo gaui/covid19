@@ -3,7 +3,7 @@ import React from 'react';
 import { createSVG } from '../utils/createSVG';
 
 const StatsCard = ({ icon, count, ...props }: StatsCardProps) => {
-  const Icon = createSVG(require(`../svg/${icon}.svg`));
+  const Icon = () => icon;
 
   return (
     <div {...props}>

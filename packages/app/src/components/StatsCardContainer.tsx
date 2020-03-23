@@ -1,6 +1,16 @@
 import React, { useEffect, useState, useRef } from 'react';
 import StatsCard from './StatsCard';
 import * as R from 'ramda';
+import { createSVG } from '../utils/createSVG';
+import Infection from '../svg/infection.svg';
+import Quarantine from '../svg/quarantine.svg';
+import Isolation from '../svg/isolation.svg';
+import Hospital from '../svg/hospital.svg';
+
+const InfectionSVG = createSVG(Infection);
+const QuarantineSVG = createSVG(Quarantine);
+const IsolationSVG = createSVG(Isolation);
+const HospitalSVG = createSVG(Hospital);
 
 const StatsCardContainer = ({
   interval,
@@ -35,10 +45,10 @@ const StatsCardContainer = ({
 
   return (
     <div className="wrapper" {...props}>
-      <StatsCard icon="infection" count={cases} />
-      <StatsCard icon="quarantine" count={todayCases} />
-      <StatsCard icon="isolation" count={recovered} />
-      <StatsCard icon="hospital" count={critical} />
+      <StatsCard icon={<InfectionSVG />} count={cases} />
+      <StatsCard icon={<QuarantineSVG />} count={todayCases} />
+      <StatsCard icon={<IsolationSVG />} count={recovered} />
+      <StatsCard icon={<HospitalSVG />} count={critical} />
     </div>
   );
 };
