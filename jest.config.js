@@ -1,12 +1,9 @@
-// For a detailed explanation regarding each configuration property, visit:
-// https://jestjs.io/docs/en/configuration.html
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const jestBaseConfig = require('./jest.base.config');
 
 module.exports = {
+  ...jestBaseConfig,
+  displayName: 'root',
   testEnvironment: 'node',
-  transform: {
-    '^.+\\.((j|t)sx?|css)$': 'babel-jest',
-    '^.+\\.(html|svg)?$': 'jest-raw-loader'
-  },
-  coverageDirectory: '.coverage',
-  testPathIgnorePatterns: ['/node_modules/', '/lib/', '/__mocks__/']
+  projects: ['<rootDir>/packages/*/jest.config.js']
 };
