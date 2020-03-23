@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebPackPlugin = require('copy-webpack-plugin');
 
 const webConfig = require('./webpack.web.config');
 const rootDir = require('./webpack.base.config').rootDir;
@@ -17,6 +18,7 @@ module.exports = {
       filename: 'manifest.json',
       inject: false,
       minify: false
-    })
+    }),
+    new CopyWebPackPlugin([{ from: 'templates/icon.png' }])
   ]
 };
