@@ -34,6 +34,8 @@ footer {
 }
 
 #app {
+  min-width: var(--width);
+  min-height: var(--height);
   max-width: var(--width);
   max-height: var(--height);
   margin: auto;
