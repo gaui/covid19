@@ -1,8 +1,10 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import StatsCardContainer from './StatsCardContainer';
 import { act } from 'react-dom/test-utils';
+import store from '../redux/store';
 
 beforeEach(() => {
   jest.useFakeTimers();
@@ -24,11 +26,13 @@ it('renders a StatsCardContainer with interval 10', async () => {
 
   await act(async () => {
     const { findByTestId } = render(
-      <StatsCardContainer
-        interval={10}
-        provider={fakeProvider}
-        data-testid="StatsCardContainer1"
-      />
+      <Provider store={store}>
+        <StatsCardContainer
+          interval={10}
+          provider={fakeProvider}
+          data-testid="StatsCardContainer1"
+        />
+      </Provider>
     );
 
     const node = await findByTestId('StatsCardContainer1');
@@ -56,11 +60,13 @@ it('renders a StatsCardContainer with interval 0', async () => {
 
   await act(async () => {
     const { findByTestId } = render(
-      <StatsCardContainer
-        interval={0}
-        provider={fakeProvider}
-        data-testid="StatsCardContainer2"
-      />
+      <Provider store={store}>
+        <StatsCardContainer
+          interval={0}
+          provider={fakeProvider}
+          data-testid="StatsCardContainer2"
+        />
+      </Provider>
     );
 
     const node = await findByTestId('StatsCardContainer2');
