@@ -67,4 +67,4 @@ const StatsCardContainer = ({
 
 StatsCardContainer.displayName = 'StatsCardContainer';
 
-export default StatsCardContainer;
+export { StatsCardContainer as default };
