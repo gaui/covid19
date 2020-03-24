@@ -7,7 +7,9 @@ const rootDir = require('./webpack.base.config').rootDir;
 
 module.exports = {
   ...baseConfig,
-  entry: path.join(rootDir, 'src', 'index.tsx'),
+  entry: {
+    main: path.join(rootDir, 'src', 'index.tsx')
+  },
   output: {
     filename: 'index.js',
     path: path.join(rootDir, 'dist', 'web')
