@@ -1,11 +1,13 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
+import { useSelector, useDispatch, shallowEqual } from 'react-redux';
+import statsSlice from '../redux/slices/stats';
 import StatsCard from './StatsCard';
-import * as R from 'ramda';
 import { createSVG } from '../utils/createSVG';
 import Cases from '../svg/cases.svg';
 import CasesToday from '../svg/casesToday.svg';
 import Critical from '../svg/critical.svg';
 import Recovered from '../svg/recovered.svg';
+import { RootState } from '../redux/types';
 
 const CasesSVG = createSVG(Cases);
 const CasesTodaySVG = createSVG(CasesToday);
@@ -17,23 +19,24 @@ const StatsCardContainer = ({
   provider,
   ...props
 }: StatsCardContainerProps) => {
-  const [stats, setStats] = useState({} as Covid19ProviderCountryStats);
-  const statsRef = useRef<Covid19ProviderCountryStats>();
+  const dispatch = useDispatch();
+  const statsState = useSelector(
+    (state: RootState) => state.stats,
+    shallowEqual
+  );
   const intervalRef = useRef<NodeJS.Timeout>();
 
   useEffect(() => {
-    const updateFn = async () => {
+    const updateStatsFn = async () => {
+      dispatch(statsSlice.actions.updatingStats());
       const data = await provider();
-      if (!R.equals(statsRef.current, data)) {
-        setStats(data);
-        statsRef.current = data;
-      }
+      dispatch(statsSlice.actions.updatedStats(data));
     };
 
-    updateFn();
+    updateStatsFn();
 
     if (interval > 0) {
-      intervalRef.current = setInterval(updateFn, interval * 1000);
+      intervalRef.current = setInterval(updateStatsFn, interval * 1000);
     }
 
     return () => {
@@ -41,7 +44,7 @@ const StatsCardContainer = ({
     };
   }, [interval]);
 
-  const { cases, todayCases, recovered, critical } = stats;
+  const { cases, todayCases, recovered, critical } = statsState.stats;
 
   return (
     <div className="wrapper" {...props}>
