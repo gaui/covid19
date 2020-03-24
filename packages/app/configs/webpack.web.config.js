@@ -11,7 +11,7 @@ module.exports = {
     main: path.join(rootDir, 'src', 'index.tsx')
   },
   output: {
-    filename: 'index.js',
+    filename: '[name].[hash:8].js',
     path: path.join(rootDir, 'dist', 'web')
   },
   plugins: [
@@ -21,5 +21,21 @@ module.exports = {
       template: 'templates/index.html.ejs',
       filename: 'index.html'
     })
-  ]
+  ],
+  optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      chunks: 'all',
+      maxInitialRequests: Infinity,
+      minSize: 0,
+      maxSize: 50000,
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          reuseExistingChunk: true
+        }
+      }
+    }
+  }
 };
