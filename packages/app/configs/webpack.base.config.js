@@ -42,6 +42,9 @@ module.exports = {
     node: {
       global: false,
       fs: 'empty'
+    },
+    devServer: {
+      hot: true
     }
   }
 };
