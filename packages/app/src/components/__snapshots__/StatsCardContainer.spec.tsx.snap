@@ -58,7 +58,7 @@ exports[`renders a StatsCardContainer with interval 0 1`] = `
       </g>
     </svg>
     <div>
-      -
+      199
     </div>
   </div>
   <div
@@ -117,7 +117,7 @@ exports[`renders a StatsCardContainer with interval 0 1`] = `
       </g>
     </svg>
     <div>
-      -
+      19
     </div>
   </div>
   <div
@@ -190,7 +190,7 @@ exports[`renders a StatsCardContainer with interval 0 1`] = `
       </g>
     </svg>
     <div>
-      -
+      1
     </div>
   </div>
   <div
