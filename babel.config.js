@@ -3,6 +3,10 @@ const babelDefaultEnvOpts = {
   useBuiltIns: 'usage'
 };
 
+const babelESModulesEnvOpts = {
+  targets: { esmodules: true }
+};
+
 const presets = [
   ['@babel/env', babelDefaultEnvOpts],
   '@babel/typescript',
@@ -15,14 +19,19 @@ const config = {
   env: {
     test: {
       presets: [
-        ['@babel/env', { ...babelDefaultEnvOpts }],
-        '@babel/typescript'
+        ['@babel/env', { ...babelDefaultEnvOpts, ...babelESModulesEnvOpts }],
+        '@babel/typescript',
+        '@babel/react'
       ],
-      plugins: [...plugins]
+      plugins
     },
     development: {
-      presets: [['@babel/env', { targets: 'last 1 Chrome version' }]],
-      plugins: []
+      presets: [
+        ['@babel/env', { ...babelDefaultEnvOpts, ...babelESModulesEnvOpts }],
+        '@babel/typescript',
+        '@babel/react'
+      ],
+      plugins
     }
   },
   presets,
