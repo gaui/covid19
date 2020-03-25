@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
-import { useSelector, useDispatch, shallowEqual } from 'react-redux';
-import statsSlice from '../redux/slices/stats';
+import React, { useEffect } from 'react';
+import { useSelector, shallowEqual, useDispatch } from 'react-redux';
+import { updateStats } from '../redux/slices/stats';
 import StatsCard from './StatsCard';
 import { createSVG } from '../utils/createSVG';
 import Cases from '../svg/cases.svg';
@@ -24,25 +24,22 @@ const StatsCardContainer = ({
     (state: RootState) => state.stats,
     shallowEqual
   );
-  const intervalRef = useRef<NodeJS.Timeout>();
 
   useEffect(() => {
-    const updateStatsFn = async () => {
-      dispatch(statsSlice.actions.updatingStats());
-      const data = await provider();
-      dispatch(statsSlice.actions.updatedStats(data));
-    };
+    dispatch(updateStats(provider));
 
-    updateStatsFn();
-
-    if (interval > 0) {
-      intervalRef.current = setInterval(updateStatsFn, interval * 1000);
-    }
+    const intervalRef =
+      interval > 0 &&
+      setInterval(() => {
+        dispatch(updateStats(provider));
+      }, interval * 1000);
 
     return () => {
-      intervalRef && intervalRef.current && clearInterval(intervalRef.current);
+      intervalRef && clearInterval(intervalRef);
     };
   }, [interval]);
+
+  if (statsState.stats === null) return null;
 
   const { cases, todayCases, recovered, critical } = statsState.stats;
 
