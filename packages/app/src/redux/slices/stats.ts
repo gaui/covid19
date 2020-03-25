@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, Dispatch } from '@reduxjs/toolkit';
 
 export const initialState: StatsState = {
   loading: false,
@@ -21,3 +21,13 @@ const statsSlice = createSlice({
 });
 
 export default statsSlice;
+
+export function updateStats(
+  provider: () => Promise<Covid19ProviderCountryStats>
+) {
+  return async (dispatch: Dispatch) => {
+    dispatch(statsSlice.actions.updatingStats());
+    const data = await provider();
+    dispatch(statsSlice.actions.updatedStats(data));
+  };
+}
