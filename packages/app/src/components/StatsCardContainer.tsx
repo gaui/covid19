@@ -8,6 +8,7 @@ import CasesToday from '../svg/casesToday.svg';
 import Critical from '../svg/critical.svg';
 import Recovered from '../svg/recovered.svg';
 import { RootState } from '../redux/types';
+import { provider } from '@gaui/covid19-core';
 
 const CasesSVG = createSVG(Cases);
 const CasesTodaySVG = createSVG(CasesToday);
@@ -16,7 +17,6 @@ const RecoveredSVG = createSVG(Recovered);
 
 const StatsCardContainer = ({
   interval,
-  provider,
   ...props
 }: StatsCardContainerProps) => {
   const dispatch = useDispatch();

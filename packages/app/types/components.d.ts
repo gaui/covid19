@@ -5,7 +5,6 @@ type StatsState = {
 
 type StatsCardContainerProps = {
   interval: number;
-  provider: () => Promise<Covid19ProviderCountryStats>;
 };
 
 type StatsCardProps = {
