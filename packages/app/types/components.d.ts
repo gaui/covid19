@@ -1,6 +1,6 @@
 type StatsState = {
   loading: boolean;
-  stats: Covid19ProviderCountryStats;
+  stats: Covid19ProviderCountryStats | null;
 };
 
 type StatsCardContainerProps = {

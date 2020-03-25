@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState: StatsState = {
+export const initialState: StatsState = {
   loading: false,
-  stats: {} as Covid19ProviderCountryStats
+  stats: null
 };
 
 const statsSlice = createSlice({
