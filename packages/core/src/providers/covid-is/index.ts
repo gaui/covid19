@@ -1,4 +1,4 @@
-import fetch from '../../utils';
+import axios from 'axios';
 import R from 'ramda';
 import {
   getObjectChildTree,
@@ -9,11 +9,9 @@ import {
 import { InfographicData } from './types';
 import config from './config';
 
-const getRemoteData = async () => {
-  const data = await fetch(config.url);
-  const text = await data.text();
-
-  return text;
+const getRemoteData: () => Promise<string> = async () => {
+  const { data } = await axios.get(config.url);
+  return data;
 };
 
 const parseData = (data: string) => {

@@ -1,11 +1,9 @@
-import fetch from '../../utils';
+import axios from 'axios';
 import config from './config';
 
-const getData = async (): Promise<Covid19ProviderCountryStats> => {
-  const data = await fetch(config.url);
-  const json = await data.json();
-
-  return json;
+const getData: () => Promise<Covid19ProviderCountryStats> = async () => {
+  const { data } = await axios.get(config.url);
+  return data;
 };
 
 export { getData };
