@@ -1,23 +1,83 @@
+/* eslint-disable @typescript-eslint/ban-ts-ignore */
+import cheerio from 'cheerio';
 import R from 'ramda';
-import { Entity } from './types';
+import {
+  InfographicDataWindow,
+  InfographicData,
+  ElementsContentContent,
+  Covid19Stats
+} from './types';
 
 const labelMap = {
   'staðfest smit': 'infected',
-  sýni: 'samples',
-  'í sóttkví': 'quarantined',
+  'í sóttkví': 'quarantineIn',
+  'lokið sóttkví': 'quarantinePost',
   'í einangrun': 'isolated',
-  'á sjúkrahúsi': 'hospitalized'
+  'á sjúkrahúsi': 'hospitalized',
+  'á gjörgæslu': 'critical',
+  batnað: 'recovered',
+  sýni: 'samples'
 };
 
-const isChartType = ([_, o]: [string, Entity]) => o.type === 'CHART';
-const getObjectChildTree = ([_, o]: [string, Entity]) => [
-  R.path(['props', 'chartData', 'data', 0, 0], o)
-];
-const isValidFormat = ([o]: [any]) =>
-  o.length === 3 && typeof o[0] === 'string';
-const createStructure = ([o]: [Entity]) => [
-  labelMap[o[1]],
-  Number(o[0].replace(/<[^>]*>?|\./gm, ''))
-];
+export const labelMapper: (array: [string, number][]) => Covid19Stats[][] = (
+  array: [string, number][]
+) => array.map(([label, count]) => [labelMap[label], count]);
 
-export { isChartType, getObjectChildTree, isValidFormat, createStructure };
+const getValueFromHTML: (val: string) => string = R.tryCatch<string>(
+  v => cheerio(cheerio.load(v).html()).text(),
+  () => {
+    return '';
+  }
+);
+
+const getPath: (x: InfographicData) => unknown[] = R.compose(
+  R.map(R.path(['props', 'chartData', 'data', 0, 0])),
+  R.filter(R.propEq('type', 'CHART')),
+  Object.values,
+  R.pathOr({} as ElementsContentContent, [
+    'elements',
+    'content',
+    'content',
+    'entities'
+  ])
+);
+
+const isNotEmpty = R.complement(R.isEmpty);
+const filterValues = R.filter(R.allPass([isNotEmpty]));
+
+const removeSymbols = (symbols: string[]) =>
+  R.replace(RegExp(`[${symbols.join('.')}]+`, 'g'), '');
+const convertToNumber = Number;
+const isNumber: (value: never) => boolean = R.compose(Number.isFinite, Number);
+const convertValue = R.ifElse(
+  isNumber,
+  R.compose(convertToNumber, removeSymbols(['.'])),
+  R.identity
+);
+
+export const filter: (data: InfographicData) => [string, number][] = R.compose(
+  // @ts-ignore
+  R.filter(R.any(isNumber)),
+  R.map(R.map(convertValue)),
+  R.map(filterValues)
+);
+
+const parseHTML: (rawData: string) => InfographicData = (rawData: string) => {
+  const $ = cheerio.load(rawData);
+  const html = $('script:not([src])')
+    .eq(3)
+    .html() as string;
+  const window = {} as InfographicDataWindow;
+  eval(html);
+  return window.infographicData;
+};
+
+const parseObject = R.compose(
+  R.map(R.map(getValueFromHTML)),
+  // @ts-ignore
+  R.map(R.reverse),
+  R.map(R.slice(0, 2)),
+  getPath
+);
+
+export const parse = R.compose(parseObject, parseHTML);
