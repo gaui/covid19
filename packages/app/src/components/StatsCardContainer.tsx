@@ -1,51 +1,67 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, shallowEqual, useDispatch } from 'react-redux';
+import { updateStats } from '../redux/slices/stats';
 import StatsCard from './StatsCard';
-import * as R from 'ramda';
 import { createSVG } from '../utils/createSVG';
 import Cases from '../svg/cases.svg';
 import CasesToday from '../svg/casesToday.svg';
+import CasesActive from '../svg/casesActive.svg';
 import Critical from '../svg/critical.svg';
+import Death from '../svg/death.svg';
 import Recovered from '../svg/recovered.svg';
+import { RootState } from '../redux/types';
+import { provider } from '@gaui/covid19-core';
 
 const CasesSVG = createSVG(Cases);
 const CasesTodaySVG = createSVG(CasesToday);
+const CasesActiveSVG = createSVG(CasesActive);
 const CriticalSVG = createSVG(Critical);
+const DeathSVG = createSVG(Death);
 const RecoveredSVG = createSVG(Recovered);
 
 const StatsCardContainer = ({
   interval,
-  provider,
   ...props
 }: StatsCardContainerProps) => {
-  const [stats, setStats] = useState({} as Covid19ProviderCountryStats);
-  const statsRef = useRef<Covid19ProviderCountryStats>();
-  const intervalRef = useRef<NodeJS.Timeout>();
+  const dispatch = useDispatch();
+  const statsState = useSelector(
+    (state: RootState) => state.stats,
+    shallowEqual
+  );
 
   useEffect(() => {
-    const updateFn = async () => {
-      const data = await provider();
-      if (!R.equals(statsRef.current, data)) {
-        setStats(data);
-        statsRef.current = data;
-      }
-    };
+    dispatch(updateStats(provider));
 
-    updateFn();
-
-    if (interval > 0) {
-      intervalRef.current = setInterval(updateFn, interval * 1000);
-    }
+    const intervalRef =
+      interval > 0 &&
+      setInterval(() => {
+        dispatch(updateStats(provider));
+      }, interval * 1000);
 
     return () => {
-      intervalRef && intervalRef.current && clearInterval(intervalRef.current);
+      intervalRef && clearInterval(intervalRef);
     };
   }, [interval]);
 
-  const { cases, todayCases, recovered, critical } = stats;
+  if (statsState.stats === null) return null;
+
+  const {
+    active,
+    cases,
+    todayCases,
+    recovered,
+    critical,
+    deaths
+  } = statsState.stats;
 
   return (
     <div className="wrapper" {...props}>
       <StatsCard icon={<CasesSVG />} title="Total cases" count={cases} />
+      <StatsCard
+        icon={<CasesActiveSVG />}
+        title="Active cases"
+        count={active}
+      />
       <StatsCard
         icon={<CasesTodaySVG />}
         title="Today's cases"
@@ -56,6 +72,7 @@ const StatsCardContainer = ({
         title="Critical cases"
         count={critical}
       />
+      <StatsCard icon={<DeathSVG />} title="Deaths" count={deaths} />
       <StatsCard
         icon={<RecoveredSVG />}
         title="Recovered cases"

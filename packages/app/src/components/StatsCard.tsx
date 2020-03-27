@@ -7,7 +7,7 @@ const StatsCard = ({ icon, count, ...props }: StatsCardProps) => {
   return (
     <div {...props}>
       <Icon />
-      <div>{count || '-'}</div>
+      <div>{count == null ? '-' : count}</div>
     </div>
   );
 };

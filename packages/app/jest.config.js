@@ -4,5 +4,6 @@ const jestBaseConfig = require('../../jest.base.config');
 module.exports = {
   ...jestBaseConfig,
   displayName: 'app',
-  testEnvironment: 'jsdom'
+  testEnvironment: 'jsdom',
+  setupFilesAfterEnv: ['./jest.setup.js']
 };

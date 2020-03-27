@@ -10,7 +10,7 @@
   "author": "Gudjon Jonsson <gaui@gaui.is> (https://gaui.is)",
   "license": "MIT",
   "scripts": {
-    "build": "microbundle --target node"
+    "build": "microbundle"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3"

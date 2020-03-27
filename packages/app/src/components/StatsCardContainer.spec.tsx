@@ -1,73 +1,97 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, findByTestId } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
+import { configureStore } from '@reduxjs/toolkit';
+import { Provider } from 'react-redux';
 import StatsCardContainer from './StatsCardContainer';
 import { act } from 'react-dom/test-utils';
+import { rootReducer } from '../redux/store';
+import { provider } from '@gaui/covid19-core';
 
-beforeEach(() => {
-  jest.useFakeTimers();
-  jest.clearAllMocks();
-});
+jest.mock('@gaui/covid19-core', () => ({
+  provider: jest.fn(
+    () =>
+      new Promise<Covid19ProviderCountryStats>(resolve => {
+        resolve({
+          active: 150,
+          cases: 199,
+          todayCases: 19,
+          deaths: 0,
+          todayDeaths: 0,
+          recovered: 0,
+          critical: 1
+        });
+      })
+  )
+}));
 
-it('renders a StatsCardContainer with interval 10', async () => {
-  const fakeProvider = jest.fn(() => {
-    return Promise.resolve({
-      country: 'Iceland',
-      cases: 199,
-      todayCases: 19,
-      deaths: 0,
-      todayDeaths: 0,
-      recovered: 0,
-      critical: 1
+jest.useFakeTimers();
+
+describe('<StatsCardContainer /> component', () => {
+  describe('<StatsCardContainer /> component with interval 10', () => {
+    let mockStatsStore: any;
+    let container: any;
+
+    beforeEach(async () => {
+      jest.clearAllTimers();
+      jest.clearAllMocks();
+      mockStatsStore = configureStore({ reducer: rootReducer });
+
+      await act(async () => {
+        container = render(
+          <Provider store={mockStatsStore}>
+            <StatsCardContainer
+              interval={10}
+              data-testid="StatsCardContainer"
+            />
+          </Provider>
+        ).container;
+      });
+    });
+
+    it('renders correctly', async () => {
+      await findByTestId(container, 'StatsCardContainer');
+      expect(container).toMatchSnapshot();
+    });
+
+    it('sets interval', () => {
+      expect(setInterval).toHaveBeenCalled();
+    });
+
+    it('calls provider 10 times', () => {
+      jest.advanceTimersToNextTimer(10);
+      expect(provider).toHaveBeenCalledTimes(11);
     });
   });
 
-  await act(async () => {
-    const { findByTestId } = render(
-      <StatsCardContainer
-        interval={10}
-        provider={fakeProvider}
-        data-testid="StatsCardContainer1"
-      />
-    );
+  describe('<StatsCardContainer /> component with interval 0', () => {
+    let mockStatsStore: any;
+    let container: any;
 
-    const node = await findByTestId('StatsCardContainer1');
+    beforeEach(async () => {
+      jest.clearAllTimers();
+      jest.clearAllMocks();
+      mockStatsStore = configureStore({ reducer: rootReducer });
 
-    expect(node).toMatchSnapshot();
-  });
+      await act(async () => {
+        container = render(
+          <Provider store={mockStatsStore}>
+            <StatsCardContainer interval={0} data-testid="StatsCardContainer" />
+          </Provider>
+        ).container;
+      });
+    });
 
-  expect(setInterval).toHaveBeenCalledTimes(1);
-  expect(setInterval).toHaveBeenCalledWith(expect.any(Function), 10000);
-  expect(fakeProvider).toHaveBeenCalled();
-});
+    it('renders correctly', () => {
+      expect(container).toMatchSnapshot();
+    });
 
-it('renders a StatsCardContainer with interval 0', async () => {
-  const fakeProvider = jest.fn(() => {
-    return Promise.resolve({
-      country: 'Iceland',
-      cases: 199,
-      todayCases: 19,
-      deaths: 0,
-      todayDeaths: 0,
-      recovered: 0,
-      critical: 1
+    it(`doesn't set interval`, () => {
+      expect(setInterval).not.toHaveBeenCalled();
+    });
+
+    it('calls provider 1 time', () => {
+      expect(provider).toHaveBeenCalledTimes(1);
     });
   });
-
-  await act(async () => {
-    const { findByTestId } = render(
-      <StatsCardContainer
-        interval={0}
-        provider={fakeProvider}
-        data-testid="StatsCardContainer2"
-      />
-    );
-
-    const node = await findByTestId('StatsCardContainer2');
-
-    expect(node).toMatchSnapshot();
-  });
-
-  expect(setInterval).not.toHaveBeenCalled();
-  expect(fakeProvider).toHaveBeenCalled();
 });
