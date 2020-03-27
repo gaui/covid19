@@ -1,4 +1,6 @@
-import { createSlice, Dispatch } from '@reduxjs/toolkit';
+import { createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit';
+
+type StatsPayloadAction = PayloadAction<Covid19ProviderCountryStats>;
 
 export const initialState: StatsState = {
   loading: false,
@@ -9,11 +11,11 @@ const statsSlice = createSlice({
   name: 'stats',
   initialState,
   reducers: {
-    updatingStats(state) {
+    updatingStats(state: StatsState) {
       state.loading = true;
       state.stats = initialState.stats;
     },
-    updatedStats(state, action) {
+    updatedStats(state: StatsState, action: StatsPayloadAction) {
       state.loading = false;
       state.stats = action.payload;
     }
