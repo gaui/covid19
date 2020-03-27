@@ -1,5 +1,5 @@
 interface Covid19ProviderCountryStats {
-  country: string;
+  active: number;
   cases: number;
   todayCases: number;
   deaths: number;

@@ -1,10 +1,17 @@
 export interface Covid19Stats {
   infected: number;
-  samples: number;
-  quarantined: number;
+  quarantineIn: number;
+  quarantinePost: number;
   isolated: number;
   hospitalized: number;
+  critical: number;
+  recovered: number;
+  samples: number;
 }
+
+export type InfographicDataWindow = Window & {
+  infographicData: InfographicData;
+};
 
 export interface InfographicData {
   [s: string]: any;
