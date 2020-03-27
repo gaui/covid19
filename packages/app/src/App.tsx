@@ -8,6 +8,6 @@ export const App = () => (
   <Provider store={store}>
     <header>COVID-19</header>
     <LazyComponent component="StatsCardContainer" interval={0} />
-    <footer>© gaui.is</footer>
+    <footer>gaui.is</footer>
   </Provider>
 );
