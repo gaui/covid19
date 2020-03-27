@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --config configs/webpack.web.config.js",
+    "build": "yarn build:web && yarn build:chrome",
     "build:web": "webpack --config configs/webpack.web.config.js",
     "build:chrome": "webpack --config configs/webpack.chrome.config.js"
   },
