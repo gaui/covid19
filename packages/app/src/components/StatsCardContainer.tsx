@@ -5,14 +5,18 @@ import StatsCard from './StatsCard';
 import { createSVG } from '../utils/createSVG';
 import Cases from '../svg/cases.svg';
 import CasesToday from '../svg/casesToday.svg';
+import CasesActive from '../svg/casesActive.svg';
 import Critical from '../svg/critical.svg';
+import Death from '../svg/death.svg';
 import Recovered from '../svg/recovered.svg';
 import { RootState } from '../redux/types';
 import { provider } from '@gaui/covid19-core';
 
 const CasesSVG = createSVG(Cases);
 const CasesTodaySVG = createSVG(CasesToday);
+const CasesActiveSVG = createSVG(CasesActive);
 const CriticalSVG = createSVG(Critical);
+const DeathSVG = createSVG(Death);
 const RecoveredSVG = createSVG(Recovered);
 
 const StatsCardContainer = ({
@@ -41,11 +45,23 @@ const StatsCardContainer = ({
 
   if (statsState.stats === null) return null;
 
-  const { cases, todayCases, recovered, critical } = statsState.stats;
+  const {
+    active,
+    cases,
+    todayCases,
+    recovered,
+    critical,
+    deaths
+  } = statsState.stats;
 
   return (
     <div className="wrapper" {...props}>
       <StatsCard icon={<CasesSVG />} title="Total cases" count={cases} />
+      <StatsCard
+        icon={<CasesActiveSVG />}
+        title="Active cases"
+        count={active}
+      />
       <StatsCard
         icon={<CasesTodaySVG />}
         title="Today's cases"
@@ -56,6 +72,7 @@ const StatsCardContainer = ({
         title="Critical cases"
         count={critical}
       />
+      <StatsCard icon={<DeathSVG />} title="Deaths" count={deaths} />
       <StatsCard
         icon={<RecoveredSVG />}
         title="Recovered cases"
