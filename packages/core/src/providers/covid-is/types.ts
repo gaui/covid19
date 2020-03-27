@@ -6,6 +6,10 @@ export interface Covid19Stats {
   hospitalized: number;
 }
 
+export type InfographicDataWindow = Window & {
+  infographicData: InfographicData;
+};
+
 export interface InfographicData {
   [s: string]: any;
   elements: InfographicDataElements;
