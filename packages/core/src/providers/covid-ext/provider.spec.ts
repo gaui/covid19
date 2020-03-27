@@ -22,12 +22,24 @@ describe('Provider (ext)', () => {
 
     mock.onGet(config.url).reply(200, {
       country: 'Iceland',
-      cases: 199,
-      todayCases: 19,
-      deaths: 0,
+      countryInfo: {
+        _id: 352,
+        lat: 65,
+        long: -18,
+        flag:
+          'https://raw.githubusercontent.com/NovelCOVID/API/master/assets/flags/is.png',
+        iso3: 'ISL',
+        iso2: 'IS'
+      },
+      cases: 890,
+      todayCases: 88,
+      deaths: 2,
       todayDeaths: 0,
-      recovered: 0,
-      critical: 1
+      recovered: 97,
+      active: 791,
+      critical: 18,
+      casesPerOneMillion: 2608,
+      deathsPerOneMillion: 6
     });
 
     // Act
@@ -35,13 +47,13 @@ describe('Provider (ext)', () => {
 
     // Assert
     expect(data).toEqual({
-      country: 'Iceland',
-      cases: 199,
-      todayCases: 19,
-      deaths: 0,
+      cases: 890,
+      todayCases: 88,
+      deaths: 2,
       todayDeaths: 0,
-      recovered: 0,
-      critical: 1
+      recovered: 97,
+      active: 791,
+      critical: 18
     });
   });
 });
