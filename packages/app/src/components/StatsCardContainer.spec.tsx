@@ -13,7 +13,7 @@ jest.mock('@gaui/covid19-core', () => ({
     () =>
       new Promise<Covid19ProviderCountryStats>(resolve => {
         resolve({
-          country: 'Iceland',
+          active: 150,
           cases: 199,
           todayCases: 19,
           deaths: 0,
