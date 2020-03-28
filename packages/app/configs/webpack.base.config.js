@@ -34,6 +34,9 @@ module.exports = {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.svg']
     },
     plugins: [
+      new webpack.IgnorePlugin({
+        resourceRegExp: /__snapshots__|.*(test|spec)\.[jt]sx?/
+      }),
       new CleanWebpackPlugin(),
       new webpack.DefinePlugin({
         global: 'window'
