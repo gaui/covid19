@@ -21,10 +21,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "paths": {
-      "@gaui/covid19-core/*": ["packages/core/src/*"],
-      "@gaui/covid19-app/*": ["packages/app/src/*"],
-      "@gaui/covid19-api/*": ["packages/api/src/*"],
-      "@gaui/covid19-chrome/*": ["packages/chrome/src/*"]
+      "@gaui/covid19-*": ["packages/*/src"],
     }
   }
 }
