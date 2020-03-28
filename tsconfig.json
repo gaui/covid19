@@ -1,15 +1,14 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    "rootDir": ".",
+    "outDir": "dist",
     "module": "esnext",
     "target": "es2019",
     "lib": ["es2019", "dom"],
     "jsx": "react",
     "sourceMap": true,
-    "declaration": true,
     "moduleResolution": "node",
-    "rootDir": ".",
-    "outDir": "lib",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "isolatedModules": true,
@@ -20,8 +19,10 @@
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
+    "declaration": true,
+    "declarationMap": true,
     "paths": {
-      "@gaui/covid19-*": ["packages/*/src"],
+      "@gaui/covid19-*": ["packages/*/src"]
     }
   }
 }
