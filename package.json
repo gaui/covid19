@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "install": "lerna bootstrap --use-workspaces",
-    "build": "lerna run build --parallel",
+    "build": "lerna run build --parallel --stream",
     "test": "jest -i",
     "test:ci": "jest -i --coverage",
     "dts": "tsc --emitDeclarationOnly",
