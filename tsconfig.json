@@ -2,14 +2,15 @@
   "files": [],
   "include": [],
   "compileOnSave": true,
-  "references": [{
-      "path": "./packages/core",
+  "references": [
+    {
+      "path": "./packages/core"
     },
     {
-      "path": "./packages/app",
+      "path": "./packages/app"
     },
     {
-      "path": "./packages/api",
+      "path": "./packages/api"
     }
   ]
 }
