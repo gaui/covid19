@@ -25,17 +25,7 @@ module.exports = {
   optimization: {
     runtimeChunk: 'single',
     splitChunks: {
-      chunks: 'all',
-      maxInitialRequests: Infinity,
-      minSize: 0,
-      maxSize: 50000,
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendor',
-          reuseExistingChunk: true
-        }
-      }
+      chunks: 'all'
     }
   }
 };
