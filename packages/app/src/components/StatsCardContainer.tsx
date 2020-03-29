@@ -10,7 +10,7 @@ import Critical from '../svg/critical.svg';
 import Death from '../svg/death.svg';
 import Recovered from '../svg/recovered.svg';
 import { RootState } from '../redux/types';
-import { provider } from '@gaui/covid19-core';
+import { provider } from '../../../core';
 
 const CasesSVG = createSVG(Cases);
 const CasesTodaySVG = createSVG(CasesToday);

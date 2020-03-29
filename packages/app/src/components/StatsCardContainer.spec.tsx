@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import StatsCardContainer from './StatsCardContainer';
 import { act } from 'react-dom/test-utils';
 import { rootReducer } from '../redux/store';
-import { provider } from '@gaui/covid19-core';
+import { provider, Covid19ProviderCountryStats } from '../../../core';
 
 jest.mock('@gaui/covid19-core', () => ({
   provider: jest.fn(

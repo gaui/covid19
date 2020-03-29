@@ -1,4 +1,6 @@
 import { createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit';
+import { StatsState } from '../../types/components';
+import { Covid19ProviderCountryStats } from '../../../../core';
 
 type StatsPayloadAction = PayloadAction<Covid19ProviderCountryStats>;
 
