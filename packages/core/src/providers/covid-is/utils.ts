@@ -9,7 +9,7 @@ import {
 } from './types';
 
 const labelMap = {
-  'staðfest smit': 'infected',
+  'staðfest smit': 'cases',
   'í sóttkví': 'quarantineIn',
   'lokið sóttkví': 'quarantinePost',
   'í einangrun': 'isolated',

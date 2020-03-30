@@ -28,7 +28,7 @@ describe('Provider (is)', () => {
     expect(data).toEqual({
       critical: 2,
       hospitalized: 15,
-      infected: 737,
+      cases: 737,
       isolated: 669,
       quarantineIn: 9013,
       quarantinePost: 2096,

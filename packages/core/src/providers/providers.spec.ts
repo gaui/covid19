@@ -10,7 +10,7 @@ jest.mock('./covid-is', () => ({
       recovered: 157,
       critical: 10,
       isolated: 927,
-      infected: 1086
+      cases: 1086
     })
   )
 }));

@@ -1,5 +1,5 @@
 export interface Covid19Stats {
-  infected: number;
+  cases: number;
   quarantineIn: number;
   quarantinePost: number;
   isolated: number;
