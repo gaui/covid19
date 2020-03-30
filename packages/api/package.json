@@ -1,11 +1,13 @@
 {
   "name": "@gaui/covid19-api",
   "version": "1.0.0",
+  "description": "",
   "private": true,
   "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "umd:main": "dist/index.umd.js",
+  "module": "dist/index.module.js",
   "source": "src/index.ts",
-  "types": "dist/packages/api/src/index.d.ts",
+  "types": "dist/index.d.ts",
   "author": "Gudjon Jonsson <gaui@gaui.is> (https://gaui.is)",
   "license": "MIT",
   "scripts": {

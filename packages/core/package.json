@@ -4,9 +4,10 @@
   "description": "",
   "private": true,
   "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "umd:main": "dist/index.umd.js",
+  "module": "dist/index.module.js",
   "source": "src/index.ts",
-  "types": "dist/packages/core/src/index.d.ts",
+  "types": "dist/index.d.ts",
   "author": "Gudjon Jonsson <gaui@gaui.is> (https://gaui.is)",
   "license": "MIT",
   "scripts": {
