@@ -6,8 +6,7 @@
   ],
   "nohoist": [
     "packages/api",
-    "packages/app",
-    "packages/chrome"
+    "packages/app"
   ],
   "scripts": {
     "install": "lerna bootstrap --use-workspaces",
