@@ -1,4 +1,4 @@
 import '@babel/polyfill';
-import { getData } from './providers';
+export { getData as provider } from './providers';
 
-export const provider = getData;
+export * from './types/schemas';

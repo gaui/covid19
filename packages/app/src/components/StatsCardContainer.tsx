@@ -11,6 +11,7 @@ import Death from '../svg/death.svg';
 import Recovered from '../svg/recovered.svg';
 import { RootState } from '../redux/types';
 import { provider } from '../../../core';
+import { StatsCardContainerProps } from '../types/components';
 
 const CasesSVG = createSVG(Cases);
 const CasesTodaySVG = createSVG(CasesToday);

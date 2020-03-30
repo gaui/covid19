@@ -1,4 +1,4 @@
-interface Covid19ProviderCountryStats {
+export interface Covid19ProviderCountryStats {
   active: number;
   cases: number;
   todayCases: number;
@@ -8,6 +8,6 @@ interface Covid19ProviderCountryStats {
   critical: number;
 }
 
-interface Covid19ProviderConfig {
+export interface Covid19ProviderConfig {
   url: string;
 }

@@ -2,6 +2,7 @@ import axios from 'axios';
 import config from './config';
 import * as R from 'ramda';
 import { Covid19Stats } from './types';
+import { Covid19ProviderCountryStats } from '../../types/schemas';
 
 const getRemoteData = () => axios.get(config.url).then(R.prop('data'));
 

@@ -1,5 +1,9 @@
 import axios from 'axios';
 import axiosMock from 'axios-mock-adapter';
+import {
+  Covid19ProviderConfig,
+  Covid19ProviderCountryStats
+} from '../../types/schemas';
 
 const mock = new axiosMock(axios);
 describe('Provider (is)', () => {

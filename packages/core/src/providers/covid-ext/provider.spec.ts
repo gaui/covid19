@@ -1,5 +1,6 @@
 import axios from 'axios';
 import axiosMock from 'axios-mock-adapter';
+import { Covid19ProviderConfig } from '../../types/schemas';
 
 const mock = new axiosMock(axios);
 
