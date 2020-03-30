@@ -1,5 +1,5 @@
 import axios from 'axios';
-import R from 'ramda';
+import * as R from 'ramda';
 import config from './config';
 import { Covid19ProviderCountryStats } from '../../types/schemas';
 import { parse, filter, labelMapper } from './utils';

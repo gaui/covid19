@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-ignore */
 import cheerio from 'cheerio';
-import R from 'ramda';
+import * as R from 'ramda';
 import {
   InfographicDataWindow,
   InfographicData,
