@@ -13,6 +13,7 @@
     "build": "lerna run build --parallel --stream",
     "test": "jest -i",
     "test:ci": "jest -i --coverage --no-cache --json --outputFile=test-results.json",
+    "package": "lerna run package --parallel --stream",
     "dts": "tsc --emitDeclarationOnly",
     "lint": "eslint --ext .ts packages __tests__ __mocks__ --ignore-path .gitignore",
     "format": "prettier \"./{packages,__tests__,__mocks__}/**/*.{js,jsx,ts,tsx,json,md}\" --write --ignore-path .gitignore",

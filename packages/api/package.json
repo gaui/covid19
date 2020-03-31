@@ -18,6 +18,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
+    "package": "sh -c '(cd $INIT_CWD && ./build.sh srv api)'",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",

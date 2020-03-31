@@ -19,7 +19,10 @@
     "start": "webpack-dev-server --config configs/webpack.web.config.js",
     "build": "yarn build:web && yarn build:chrome",
     "build:web": "webpack --config configs/webpack.web.config.js",
-    "build:chrome": "webpack --config configs/webpack.chrome.config.js"
+    "build:chrome": "webpack --config configs/webpack.chrome.config.js",
+    "package": "yarn package:web && yarn package:chrome",
+    "package:web": "sh -c '(cd $INIT_CWD && ./build.sh app app web)'",
+    "package:chrome": "echo TODO: CREATE CRX FILE"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.3.0",
