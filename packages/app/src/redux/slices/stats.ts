@@ -1,6 +1,7 @@
 import { createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit';
 import { StatsState } from '../../types/components';
 import { Covid19ProviderCountryStats } from '../../../../core';
+import axios from 'axios';
 
 type StatsPayloadAction = PayloadAction<Covid19ProviderCountryStats>;
 
@@ -26,12 +27,27 @@ const statsSlice = createSlice({
 
 export default statsSlice;
 
-export function updateStats(
-  provider: () => Promise<Covid19ProviderCountryStats>
-) {
+export function updateStats() {
   return async (dispatch: Dispatch) => {
     dispatch(statsSlice.actions.updatingStats());
-    const data = await provider();
+    // TODO: Replace with Apollo client
+    const data = await axios
+      .post(`${process.env.COVID_API_URL}/graphql`, {
+        query: `
+{
+  stats {
+    active
+    cases
+    todayCases
+    deaths
+    todayDeaths
+    recovered
+    critical
+  }
+}`
+      })
+      .then(({ data }) => data.data.stats);
+
     dispatch(statsSlice.actions.updatedStats(data));
   };
 }

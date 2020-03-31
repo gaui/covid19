@@ -10,7 +10,6 @@ import Critical from '../svg/critical.svg';
 import Death from '../svg/death.svg';
 import Recovered from '../svg/recovered.svg';
 import { RootState } from '../redux/types';
-import { provider } from '../../../core';
 import { StatsCardContainerProps } from '../types/components';
 
 const CasesSVG = createSVG(Cases);
@@ -31,12 +30,12 @@ const StatsCardContainer = ({
   );
 
   useEffect(() => {
-    dispatch(updateStats(provider));
+    dispatch(updateStats());
 
     const intervalRef =
       interval > 0 &&
       setInterval(() => {
-        dispatch(updateStats(provider));
+        dispatch(updateStats());
       }, interval * 1000);
 
     return () => {

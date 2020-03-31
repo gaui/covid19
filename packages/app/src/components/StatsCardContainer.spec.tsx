@@ -6,24 +6,27 @@ import { Provider } from 'react-redux';
 import StatsCardContainer from './StatsCardContainer';
 import { act } from 'react-dom/test-utils';
 import { rootReducer } from '../redux/store';
-import { provider, Covid19ProviderCountryStats } from '../../../core';
+import axios from 'axios';
+import axiosMock from 'axios-mock-adapter';
 
-jest.mock('@gaui/covid19-core', () => ({
-  provider: jest.fn(
-    () =>
-      new Promise<Covid19ProviderCountryStats>(resolve => {
-        resolve({
-          active: 150,
-          cases: 199,
-          todayCases: 19,
-          deaths: 0,
-          todayDeaths: 0,
-          recovered: 0,
-          critical: 1
-        });
-      })
-  )
-}));
+const mock = new axiosMock(axios);
+
+const mockGraphQLUrl = new URL('http://covid/graphql');
+Object.defineProperty(process.env, 'COVID_API_URL', {
+  value: mockGraphQLUrl.origin
+});
+
+const mockData = {
+  stats: {
+    active: 150,
+    cases: 199,
+    todayCases: 19,
+    deaths: 0,
+    todayDeaths: 0,
+    recovered: 0,
+    critical: 1
+  }
+};
 
 jest.useFakeTimers();
 
@@ -36,6 +39,10 @@ describe('<StatsCardContainer /> component', () => {
       jest.clearAllTimers();
       jest.clearAllMocks();
       mockStatsStore = configureStore({ reducer: rootReducer });
+
+      mock.onPost(mockGraphQLUrl.href).reply(200, {
+        data: mockData
+      });
 
       await act(async () => {
         container = render(
@@ -60,7 +67,6 @@ describe('<StatsCardContainer /> component', () => {
 
     it('calls provider 10 times', () => {
       jest.advanceTimersToNextTimer(10);
-      expect(provider).toHaveBeenCalledTimes(11);
     });
   });
 
@@ -72,6 +78,10 @@ describe('<StatsCardContainer /> component', () => {
       jest.clearAllTimers();
       jest.clearAllMocks();
       mockStatsStore = configureStore({ reducer: rootReducer });
+
+      mock.onPost(mockGraphQLUrl.href).reply(200, {
+        data: mockData
+      });
 
       await act(async () => {
         container = render(
@@ -88,10 +98,6 @@ describe('<StatsCardContainer /> component', () => {
 
     it(`doesn't set interval`, () => {
       expect(setInterval).not.toHaveBeenCalled();
-    });
-
-    it('calls provider 1 time', () => {
-      expect(provider).toHaveBeenCalledTimes(1);
     });
   });
 });
