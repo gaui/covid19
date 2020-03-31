@@ -10,6 +10,11 @@
   "types": "dist/index.d.ts",
   "author": "Gudjon Jonsson <gaui@gaui.is> (https://gaui.is)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gaui/covid19.git",
+    "directory": "packages/api"
+  },
   "scripts": {
     "start": "nodemon -e '.ts' -x 'babel-node --root-mode upward -x '.ts' src/index.ts'",
     "build": "microbundle --target node"
