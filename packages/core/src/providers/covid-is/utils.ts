@@ -15,7 +15,7 @@ const labelMap = {
   'í einangrun': 'isolated',
   'á sjúkrahúsi': 'hospitalized',
   'á gjörgæslu': 'critical',
-  batnað: 'recovered',
+  'náð bata': 'recovered',
   sýni: 'samples'
 };
 
