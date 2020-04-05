@@ -26,14 +26,14 @@ describe('Provider (is)', () => {
     mock.onGet(config.url).reply(200, mockData);
     const data = await getData();
     expect(data).toEqual({
-      critical: 2,
-      hospitalized: 15,
-      cases: 737,
-      isolated: 669,
-      quarantineIn: 9013,
-      quarantinePost: 2096,
-      recovered: 68,
-      samples: 11727
+      cases: 1417,
+      critical: 11,
+      hospitalized: 42,
+      isolated: 1017,
+      quarantineIn: 5275,
+      quarantinePost: 11679,
+      recovered: 396,
+      samples: 23640
     });
   });
 });
