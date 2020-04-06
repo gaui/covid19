@@ -1,5 +1,5 @@
 import ApolloClient from 'apollo-boost';
-import unfetch from 'unfetch';
+import unfetch from 'isomorphic-unfetch';
 
 let apolloClient: ApolloClient<unknown>;
 

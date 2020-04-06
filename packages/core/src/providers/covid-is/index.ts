@@ -1,4 +1,4 @@
-import 'unfetch';
+import 'isomorphic-unfetch';
 import config from './config';
 import { Covid19ProviderCountryStats } from '../../types/schemas';
 import { parse, filter, labelMapper } from './utils';

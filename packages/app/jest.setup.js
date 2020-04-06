@@ -1,4 +1,4 @@
 import { setAutoFreeze } from 'immer';
-import 'unfetch';
+import 'isomorphic-unfetch';
 
 setAutoFreeze(false);

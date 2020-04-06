@@ -1,1 +1,1 @@
-import 'unfetch';
+import 'isomorphic-unfetch';
