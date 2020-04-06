@@ -52,9 +52,9 @@ export function updateStats() {
 
     dispatch(statsSlice.actions.updatingStats());
 
-    const { stats } = await apolloClient
+    const stats = await apolloClient
       .query({ query: STATS_QUERY })
-      .then(({ data }) => data);
+      .then(({ data }) => data.stats);
 
     dispatch(statsSlice.actions.updatedStats(stats));
   };

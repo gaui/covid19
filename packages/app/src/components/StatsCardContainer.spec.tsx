@@ -15,13 +15,17 @@ Object.defineProperty(process.env, 'COVID_API_URL', {
 
 const mockData = {
   stats: {
-    active: 150,
-    cases: 199,
-    todayCases: 19,
-    deaths: 0,
-    todayDeaths: 0,
-    recovered: 0,
-    critical: 1,
+    active: 1054,
+    cases: 1486,
+    todayCases: 0,
+    hospitalized: 38,
+    critical: 12,
+    deaths: 4,
+    recovered: 428,
+    samples: 25394,
+    quarantineIn: 5511,
+    quarantinePost: 11657,
+    isolated: 1054,
     __typename: 'CountryStats'
   }
 };
