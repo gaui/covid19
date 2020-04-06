@@ -9,6 +9,11 @@ import CasesActive from '../svg/casesActive.svg';
 import Critical from '../svg/critical.svg';
 import Death from '../svg/death.svg';
 import Recovered from '../svg/recovered.svg';
+import Hospital from '../svg/hospital.svg';
+import QuarantineIn from '../svg/quarantineIn.svg';
+import QuarantinePost from '../svg/quarantinePost.svg';
+import Isolated from '../svg/isolated.svg';
+import Samples from '../svg/samples.svg';
 import { RootState } from '../redux/types';
 import { StatsCardContainerProps } from '../types/components';
 
@@ -18,6 +23,11 @@ const CasesActiveSVG = createSVG(CasesActive);
 const CriticalSVG = createSVG(Critical);
 const DeathSVG = createSVG(Death);
 const RecoveredSVG = createSVG(Recovered);
+const HospitalSVG = createSVG(Hospital);
+const QuarantineInSVG = createSVG(QuarantineIn);
+const QuarantinePostSVG = createSVG(QuarantinePost);
+const IsolatedSVG = createSVG(Isolated);
+const SamplesSVG = createSVG(Samples);
 
 const StatsCardContainer = ({
   interval,
@@ -49,9 +59,14 @@ const StatsCardContainer = ({
     active,
     cases,
     todayCases,
-    recovered,
+    hospitalized,
     critical,
-    deaths
+    deaths,
+    recovered,
+    samples,
+    quarantineIn,
+    quarantinePost,
+    isolated
   } = statsState.stats;
 
   return (
@@ -68,6 +83,11 @@ const StatsCardContainer = ({
         count={todayCases}
       />
       <StatsCard
+        icon={<HospitalSVG />}
+        title="In hospital"
+        count={hospitalized}
+      />
+      <StatsCard
         icon={<CriticalSVG />}
         title="Critical cases"
         count={critical}
@@ -78,6 +98,18 @@ const StatsCardContainer = ({
         title="Recovered cases"
         count={recovered}
       />
+      <StatsCard icon={<SamplesSVG />} title="Samples taken" count={samples} />
+      <StatsCard
+        icon={<QuarantineInSVG />}
+        title="In quarantine"
+        count={quarantineIn}
+      />
+      <StatsCard
+        icon={<QuarantinePostSVG />}
+        title="Finished quarantine"
+        count={quarantinePost}
+      />
+      <StatsCard icon={<IsolatedSVG />} title="In isolation" count={isolated} />
     </div>
   );
 };

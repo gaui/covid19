@@ -12,10 +12,14 @@ const STATS_QUERY = gql`
       active
       cases
       todayCases
-      deaths
-      todayDeaths
-      recovered
+      hospitalized
       critical
+      deaths
+      recovered
+      samples
+      quarantineIn
+      quarantinePost
+      isolated
     }
   }
 `;
