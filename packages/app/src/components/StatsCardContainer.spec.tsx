@@ -6,14 +6,11 @@ import { Provider } from 'react-redux';
 import StatsCardContainer from './StatsCardContainer';
 import { act } from 'react-dom/test-utils';
 import { rootReducer } from '../redux/store';
-import axios from 'axios';
-import axiosMock from 'axios-mock-adapter';
+import fetchMock from 'fetch-mock';
 
-const mock = new axiosMock(axios);
-
-const mockGraphQLUrl = new URL('http://covid/graphql');
+const mockGraphQLUrl = 'http://covid';
 Object.defineProperty(process.env, 'COVID_API_URL', {
-  value: mockGraphQLUrl.origin
+  value: mockGraphQLUrl
 });
 
 const mockData = {
@@ -24,7 +21,8 @@ const mockData = {
     deaths: 0,
     todayDeaths: 0,
     recovered: 0,
-    critical: 1
+    critical: 1,
+    __typename: 'CountryStats'
   }
 };
 
@@ -38,9 +36,10 @@ describe('<StatsCardContainer /> component', () => {
     beforeEach(async () => {
       jest.clearAllTimers();
       jest.clearAllMocks();
+      fetchMock.reset();
       mockStatsStore = configureStore({ reducer: rootReducer });
 
-      mock.onPost(mockGraphQLUrl.href).reply(200, {
+      fetchMock.post(mockGraphQLUrl, {
         data: mockData
       });
 
@@ -77,9 +76,10 @@ describe('<StatsCardContainer /> component', () => {
     beforeEach(async () => {
       jest.clearAllTimers();
       jest.clearAllMocks();
+      fetchMock.reset();
       mockStatsStore = configureStore({ reducer: rootReducer });
 
-      mock.onPost(mockGraphQLUrl.href).reply(200, {
+      fetchMock.post(mockGraphQLUrl, {
         data: mockData
       });
 

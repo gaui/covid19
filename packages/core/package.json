@@ -19,7 +19,7 @@
     "node": "^13.0.0"
   },
   "scripts": {
-    "build": "microbundle --external axios,cheerio"
+    "build": "microbundle --external cheerio"
   },
   "dependencies": {
     "cheerio": "1.0.0-rc.3"

@@ -1,11 +1,9 @@
-import axios from 'axios';
-import axiosMock from 'axios-mock-adapter';
+import fetchMock from 'fetch-mock';
 import {
   Covid19ProviderConfig,
   Covid19ProviderCountryStats
 } from '../../types/schemas';
 
-const mock = new axiosMock(axios);
 describe('Provider (is)', () => {
   let config: Covid19ProviderConfig;
   let mockData: string;
@@ -19,11 +17,11 @@ describe('Provider (is)', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-    mock.reset();
+    fetchMock.reset();
   });
 
   it('should get raw data and transform infographic data', async () => {
-    mock.onGet(config.url).reply(200, mockData);
+    fetchMock.get(config.url, mockData);
     const data = await getData();
     expect(data).toEqual({
       cases: 1417,

@@ -1,9 +1,24 @@
 import { createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit';
 import { StatsState } from '../../types/components';
 import { Covid19ProviderCountryStats } from '../../../../core';
-import axios from 'axios';
+import { gql } from 'apollo-boost';
+import { createApolloClient } from '../../utils/createApolloClient';
 
 type StatsPayloadAction = PayloadAction<Covid19ProviderCountryStats>;
+
+const STATS_QUERY = gql`
+  {
+    stats {
+      active
+      cases
+      todayCases
+      deaths
+      todayDeaths
+      recovered
+      critical
+    }
+  }
+`;
 
 export const initialState: StatsState = {
   loading: false,
@@ -29,25 +44,14 @@ export default statsSlice;
 
 export function updateStats() {
   return async (dispatch: Dispatch) => {
-    dispatch(statsSlice.actions.updatingStats());
-    // TODO: Replace with Apollo client
-    const data = await axios
-      .post(`${process.env.COVID_API_URL}/graphql`, {
-        query: `
-{
-  stats {
-    active
-    cases
-    todayCases
-    deaths
-    todayDeaths
-    recovered
-    critical
-  }
-}`
-      })
-      .then(({ data }) => data.data.stats);
+    const apolloClient = createApolloClient();
 
-    dispatch(statsSlice.actions.updatedStats(data));
+    dispatch(statsSlice.actions.updatingStats());
+
+    const { stats } = await apolloClient
+      .query({ query: STATS_QUERY })
+      .then(({ data }) => data);
+
+    dispatch(statsSlice.actions.updatedStats(stats));
   };
 }
