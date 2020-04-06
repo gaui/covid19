@@ -12,5 +12,5 @@ export type StatsCardContainerProps = {
 export type StatsCardProps = {
   icon: React.ReactElement;
   title: string;
-  count: number;
+  count?: number;
 };
