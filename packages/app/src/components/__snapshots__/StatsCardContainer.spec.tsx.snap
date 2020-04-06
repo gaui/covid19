@@ -6,9 +6,7 @@ exports[`<StatsCardContainer /> component <StatsCardContainer /> component with 
     class="wrapper"
     data-testid="StatsCardContainer"
   >
-    <div
-      title="Total cases"
-    >
+    <div>
       <svg
         id="_x31_-outline-expand"
         version="1.1"
@@ -29,13 +27,18 @@ exports[`<StatsCardContainer /> component <StatsCardContainer /> component with 
         
 
       </svg>
-      <div>
+      <div
+        class="title"
+      >
+        Total cases
+      </div>
+      <div
+        class="stats"
+      >
         199
       </div>
     </div>
-    <div
-      title="Active cases"
-    >
+    <div>
       <svg
         id="_x31_-outline-expand"
         version="1.1"
@@ -143,13 +146,18 @@ exports[`<StatsCardContainer /> component <StatsCardContainer /> component with 
         
 
       </svg>
-      <div>
+      <div
+        class="title"
+      >
+        Active cases
+      </div>
+      <div
+        class="stats"
+      >
         150
       </div>
     </div>
-    <div
-      title="Today's cases"
-    >
+    <div>
       <svg
         id="_x31_-outline-expand"
         version="1.1"
@@ -191,13 +199,18 @@ exports[`<StatsCardContainer /> component <StatsCardContainer /> component with 
         
 
       </svg>
-      <div>
+      <div
+        class="title"
+      >
+        Today's cases
+      </div>
+      <div
+        class="stats"
+      >
         19
       </div>
     </div>
-    <div
-      title="Critical cases"
-    >
+    <div>
       <svg
         id="_x31_-outline-expand"
         version="1.1"
@@ -242,13 +255,18 @@ exports[`<StatsCardContainer /> component <StatsCardContainer /> component with 
         
 
       </svg>
-      <div>
+      <div
+        class="title"
+      >
+        Critical cases
+      </div>
+      <div
+        class="stats"
+      >
         1
       </div>
     </div>
-    <div
-      title="Deaths"
-    >
+    <div>
       <svg
         height="64px"
         preserveAspectRatio="xMidYMid meet"
@@ -281,13 +299,18 @@ exports[`<StatsCardContainer /> component <StatsCardContainer /> component with 
         
 
       </svg>
-      <div>
+      <div
+        class="title"
+      >
+        Deaths
+      </div>
+      <div
+        class="stats"
+      >
         0
       </div>
     </div>
-    <div
-      title="Recovered cases"
-    >
+    <div>
       <svg
         id="_x31_-outline-expand"
         version="1.1"
@@ -302,7 +325,14 @@ exports[`<StatsCardContainer /> component <StatsCardContainer /> component with 
         
 
       </svg>
-      <div>
+      <div
+        class="title"
+      >
+        Recovered cases
+      </div>
+      <div
+        class="stats"
+      >
         0
       </div>
     </div>
@@ -316,9 +346,7 @@ exports[`<StatsCardContainer /> component <StatsCardContainer /> component with 
     class="wrapper"
     data-testid="StatsCardContainer"
   >
-    <div
-      title="Total cases"
-    >
+    <div>
       <svg
         id="_x31_-outline-expand"
         version="1.1"
@@ -339,13 +367,18 @@ exports[`<StatsCardContainer /> component <StatsCardContainer /> component with 
         
 
       </svg>
-      <div>
+      <div
+        class="title"
+      >
+        Total cases
+      </div>
+      <div
+        class="stats"
+      >
         199
       </div>
     </div>
-    <div
-      title="Active cases"
-    >
+    <div>
       <svg
         id="_x31_-outline-expand"
         version="1.1"
@@ -453,13 +486,18 @@ exports[`<StatsCardContainer /> component <StatsCardContainer /> component with 
         
 
       </svg>
-      <div>
+      <div
+        class="title"
+      >
+        Active cases
+      </div>
+      <div
+        class="stats"
+      >
         150
       </div>
     </div>
-    <div
-      title="Today's cases"
-    >
+    <div>
       <svg
         id="_x31_-outline-expand"
         version="1.1"
@@ -501,13 +539,18 @@ exports[`<StatsCardContainer /> component <StatsCardContainer /> component with 
         
 
       </svg>
-      <div>
+      <div
+        class="title"
+      >
+        Today's cases
+      </div>
+      <div
+        class="stats"
+      >
         19
       </div>
     </div>
-    <div
-      title="Critical cases"
-    >
+    <div>
       <svg
         id="_x31_-outline-expand"
         version="1.1"
@@ -552,13 +595,18 @@ exports[`<StatsCardContainer /> component <StatsCardContainer /> component with 
         
 
       </svg>
-      <div>
+      <div
+        class="title"
+      >
+        Critical cases
+      </div>
+      <div
+        class="stats"
+      >
         1
       </div>
     </div>
-    <div
-      title="Deaths"
-    >
+    <div>
       <svg
         height="64px"
         preserveAspectRatio="xMidYMid meet"
@@ -591,13 +639,18 @@ exports[`<StatsCardContainer /> component <StatsCardContainer /> component with 
         
 
       </svg>
-      <div>
+      <div
+        class="title"
+      >
+        Deaths
+      </div>
+      <div
+        class="stats"
+      >
         0
       </div>
     </div>
-    <div
-      title="Recovered cases"
-    >
+    <div>
       <svg
         id="_x31_-outline-expand"
         version="1.1"
@@ -612,7 +665,14 @@ exports[`<StatsCardContainer /> component <StatsCardContainer /> component with 
         
 
       </svg>
-      <div>
+      <div
+        class="title"
+      >
+        Recovered cases
+      </div>
+      <div
+        class="stats"
+      >
         0
       </div>
     </div>
