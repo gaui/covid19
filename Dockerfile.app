@@ -1,5 +1,6 @@
 # syntax = docker/dockerfile:experimental
 
+ARG PACKAGE_SCOPE
 ARG PACKAGE_PREFIX
 ARG PACKAGE_NAME
 ARG PACKAGE_DIST
@@ -10,6 +11,7 @@ ARG NODE_VERSION
 ### Build
 
 FROM node:${NODE_VERSION}-slim AS build
+ARG PACKAGE_SCOPE
 ARG PACKAGE_PREFIX
 ARG PACKAGE_NAME
 ARG PACKAGE_DIST
@@ -22,7 +24,7 @@ COPY . .
 RUN --mount=type=cache,id=nmcache1,target=/tmp/nmcache1 yarn --frozen-lockfile
 RUN --mount=type=cache,id=nmcache1,target=/tmp/nmcache1 cp -R /tmp/nmcache1 /tmp/node_modules
 RUN yarn test:ci
-RUN yarn lerna run build --scope ${PACKAGE_PREFIX}${PACKAGE_NAME} \
+RUN yarn lerna run build --scope ${PACKAGE_SCOPE}${PACKAGE_PREFIX}${PACKAGE_NAME} \
   --include-dependencies --private
 
 RUN mkdir -p ${APP_DIR}
