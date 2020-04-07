@@ -11,3 +11,4 @@ lib/
 node_modules
 *cache*
 .fuse_hidden*
+*.tsbuildinfo

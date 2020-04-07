@@ -1,6 +1,28 @@
 import { createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit';
+import { StatsState } from '../../types/components';
+import { Covid19ProviderCountryStats } from '../../../../core';
+import { gql } from 'apollo-boost';
+import { createApolloClient } from '../../utils/createApolloClient';
 
 type StatsPayloadAction = PayloadAction<Covid19ProviderCountryStats>;
+
+const STATS_QUERY = gql`
+  {
+    stats {
+      active
+      cases
+      todayCases
+      hospitalized
+      critical
+      deaths
+      recovered
+      samples
+      quarantineIn
+      quarantinePost
+      isolated
+    }
+  }
+`;
 
 export const initialState: StatsState = {
   loading: false,
@@ -24,12 +46,16 @@ const statsSlice = createSlice({
 
 export default statsSlice;
 
-export function updateStats(
-  provider: () => Promise<Covid19ProviderCountryStats>
-) {
+export function updateStats() {
   return async (dispatch: Dispatch) => {
+    const apolloClient = createApolloClient();
+
     dispatch(statsSlice.actions.updatingStats());
-    const data = await provider();
-    dispatch(statsSlice.actions.updatedStats(data));
+
+    const stats = await apolloClient
+      .query({ query: STATS_QUERY })
+      .then(({ data }) => data.stats);
+
+    dispatch(statsSlice.actions.updatedStats(stats));
   };
 }

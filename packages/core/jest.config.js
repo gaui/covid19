@@ -3,5 +3,6 @@ const jestBaseConfig = require('../../jest.base.config');
 
 module.exports = {
   ...jestBaseConfig,
-  displayName: 'core'
+  displayName: 'core',
+  setupFilesAfterEnv: ['./jest.setup.js']
 };

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-ignore */
 import cheerio from 'cheerio';
-import R from 'ramda';
+import * as R from 'ramda';
 import {
   InfographicDataWindow,
   InfographicData,
@@ -9,13 +9,13 @@ import {
 } from './types';
 
 const labelMap = {
-  'staðfest smit': 'infected',
+  'staðfest smit': 'cases',
   'í sóttkví': 'quarantineIn',
   'lokið sóttkví': 'quarantinePost',
   'í einangrun': 'isolated',
   'á sjúkrahúsi': 'hospitalized',
   'á gjörgæslu': 'critical',
-  batnað: 'recovered',
+  'náð bata': 'recovered',
   sýni: 'samples'
 };
 

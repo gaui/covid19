@@ -39,7 +39,13 @@ module.exports = {
       }),
       new CleanWebpackPlugin(),
       new webpack.DefinePlugin({
-        global: 'window'
+        global: 'window',
+        ...Object.keys(process.env)
+          .filter(x => x.startsWith('COVID_'))
+          .map(k => ({
+            [`process.env.${k}`]: JSON.stringify(process.env[k])
+          }))
+          .reduce((prev, cur) => ({ ...prev, ...cur }), {})
       })
     ],
     node: {

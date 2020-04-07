@@ -1,0 +1,47 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""Country statistics"""
+type CountryStats {
+  """Active cases"""
+  active: Int!
+
+  """Total cases"""
+  cases: Int!
+
+  """Cases today"""
+  todayCases: Int!
+
+  """Total deaths"""
+  deaths: Int!
+
+  """Deaths today"""
+  todayDeaths: Int!
+
+  """Total recovered"""
+  recovered: Int!
+
+  """Critical cases"""
+  critical: Int!
+
+  """In quarantine"""
+  quarantineIn: Int
+
+  """Finished quarantine"""
+  quarantinePost: Int
+
+  """In isolation"""
+  isolated: Int
+
+  """In hospital"""
+  hospitalized: Int
+
+  """Total samples"""
+  samples: Int
+}
+
+type Query {
+  """Gets COVID-19 statistics"""
+  stats: CountryStats!
+}

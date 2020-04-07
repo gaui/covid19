@@ -1,30 +1,16 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "module": "esnext",
-    "target": "es2019",
-    "lib": ["es2019", "dom"],
-    "jsx": "react",
-    "sourceMap": true,
-    "declaration": true,
-    "moduleResolution": "node",
-    "rootDir": ".",
-    "outDir": "lib",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "isolatedModules": true,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true,
-    "paths": {
-      "@gaui/covid19-core/*": ["packages/core/src/*"],
-      "@gaui/covid19-app/*": ["packages/app/src/*"],
-      "@gaui/covid19-api/*": ["packages/api/src/*"],
-      "@gaui/covid19-chrome/*": ["packages/chrome/src/*"]
+  "files": [],
+  "include": [],
+  "compileOnSave": true,
+  "references": [
+    {
+      "path": "./packages/core"
+    },
+    {
+      "path": "./packages/app"
+    },
+    {
+      "path": "./packages/api"
     }
-  }
+  ]
 }

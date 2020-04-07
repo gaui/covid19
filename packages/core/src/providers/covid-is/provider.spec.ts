@@ -1,7 +1,9 @@
-import axios from 'axios';
-import axiosMock from 'axios-mock-adapter';
+import fetchMock from 'fetch-mock';
+import {
+  Covid19ProviderConfig,
+  Covid19ProviderCountryStats
+} from '../../types/schemas';
 
-const mock = new axiosMock(axios);
 describe('Provider (is)', () => {
   let config: Covid19ProviderConfig;
   let mockData: string;
@@ -15,21 +17,21 @@ describe('Provider (is)', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-    mock.reset();
+    fetchMock.reset();
   });
 
   it('should get raw data and transform infographic data', async () => {
-    mock.onGet(config.url).reply(200, mockData);
+    fetchMock.get(config.url, mockData);
     const data = await getData();
     expect(data).toEqual({
-      critical: 2,
-      hospitalized: 15,
-      infected: 737,
-      isolated: 669,
-      quarantineIn: 9013,
-      quarantinePost: 2096,
-      recovered: 68,
-      samples: 11727
+      cases: 1417,
+      critical: 11,
+      hospitalized: 42,
+      isolated: 1017,
+      quarantineIn: 5275,
+      quarantinePost: 11679,
+      recovered: 396,
+      samples: 23640
     });
   });
 });
