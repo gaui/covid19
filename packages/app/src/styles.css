@@ -58,6 +58,13 @@ footer {
   border-radius: 10px;
 }
 
+.wrapper>div>div.title {
+  font-size: .8em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 1em;
+}
+
 .wrapper>div>svg {
   fill: var(--orange);
   filter: sepia(100%);
@@ -67,7 +74,7 @@ footer {
   max-height: 7em;
 }
 
-.wrapper>div>div {
+.wrapper>div>div.stats {
   display: flex;
   align-items: center;
   justify-content: center;

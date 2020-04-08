@@ -1,9 +1,9 @@
-import axios from 'axios';
-import R from 'ramda';
+import 'isomorphic-unfetch';
 import config from './config';
+import { Covid19ProviderCountryStats } from '../../types/schemas';
 import { parse, filter, labelMapper } from './utils';
 
-const getRemoteData = () => axios.get(config.url).then(R.prop('data'));
+const getRemoteData = () => fetch(config.url).then(r => r.text());
 
 export const getData = async (): Promise<Covid19ProviderCountryStats> =>
   getRemoteData()

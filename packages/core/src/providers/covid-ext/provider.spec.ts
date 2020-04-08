@@ -1,7 +1,5 @@
-import axios from 'axios';
-import axiosMock from 'axios-mock-adapter';
-
-const mock = new axiosMock(axios);
+import fetchMock from 'fetch-mock';
+import { Covid19ProviderConfig } from '../../types/schemas';
 
 describe('Provider (ext)', () => {
   let config: Covid19ProviderConfig;
@@ -14,13 +12,13 @@ describe('Provider (ext)', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-    mock.reset();
+    fetchMock.reset();
   });
 
   it('should get data from API', async () => {
     // Arrange
 
-    mock.onGet(config.url).reply(200, {
+    fetchMock.get(config.url, {
       country: 'Iceland',
       countryInfo: {
         _id: 352,

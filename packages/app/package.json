@@ -1,39 +1,55 @@
 {
   "name": "@gaui/covid19-app",
   "version": "1.0.0",
+  "description": "",
   "private": true,
   "main": "dist/index.js",
-  "source": "src/App.tsx",
+  "umd:main": "dist/index.umd.js",
+  "module": "dist/index.module.js",
+  "source": "src/index.tsx",
+  "types": "dist/index.d.ts",
   "author": "Gudjon Jonsson <gaui@gaui.is> (https://gaui.is)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gaui/covid19.git",
+    "directory": "packages/app"
+  },
+  "engines": {
+    "node": "^13.0.0"
+  },
   "scripts": {
     "start": "webpack-dev-server --config configs/webpack.web.config.js",
     "build": "yarn build:web && yarn build:chrome",
     "build:web": "webpack --config configs/webpack.web.config.js",
-    "build:chrome": "webpack --config configs/webpack.chrome.config.js"
+    "build:chrome": "webpack --config configs/webpack.chrome.config.js",
+    "package": "yarn package:web && yarn package:chrome",
+    "package:web": "sh -c '(cd $INIT_CWD && ./build.sh app app web)'",
+    "package:chrome": "yarn build:chrome && sh -c '(cd $INIT_CWD && cp ~/.chrome/covid19.pem . && chromium --pack-extension=./packages/app/dist/chrome/ --pack-extension-key=covid19.pem && rm covid19.pem)'"
   },
   "dependencies": {
-    "@gaui/covid19-core": "*",
-    "@reduxjs/toolkit": "1.3.0",
-    "react-redux": "7.2.0",
-    "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "@apollo/react-hooks": "^3.1.4",
+    "@reduxjs/toolkit": "^1.3.0",
+    "apollo-boost": "^0.4.7",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-redux": "^7.2.0"
   },
   "devDependencies": {
-    "@testing-library/dom": "7.1.0",
-    "@testing-library/jest-dom": "5.1.1",
-    "@testing-library/react": "10.0.1",
-    "@testing-library/react-hooks": "3.2.1",
-    "@types/chrome": "0.0.101",
-    "@types/react": "16.9.23",
-    "@types/react-dom": "16.9.5",
-    "@types/react-redux": "7.1.7",
-    "babel-loader": "8.1.0",
-    "clean-webpack-plugin": "3.0.0",
-    "copy-webpack-plugin": "5.1.1",
-    "css-loader": "3.4.2",
-    "html-webpack-plugin": "3.2.0",
-    "react-test-renderer": "16.13.1",
-    "style-loader": "1.1.3"
+    "@testing-library/dom": "^7.1.0",
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/react": "^10.0.1",
+    "@testing-library/react-hooks": "^3.2.1",
+    "@types/chrome": "^0.0.101",
+    "@types/react": "^16.9.23",
+    "@types/react-dom": "^16.9.5",
+    "@types/react-redux": "^7.1.7",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.4.2",
+    "html-webpack-plugin": "^3.2.0",
+    "react-test-renderer": "^16.13.1",
+    "style-loader": "^1.1.3"
   }
 }

@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig-base.json",
+  "exclude": ["node_modules", "dist"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "module": "commonjs",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "references": [{
+    "path": "../core"
+  }]
+}
