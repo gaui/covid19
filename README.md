@@ -51,12 +51,27 @@ If you would like to collaborate on this project, it's more than welcome!
 _Make sure you prepend commits with the following: `[core]`, `[api]`, `[app]`
 or nothing if it's a general change._
 
+_Also make sure you prefix each change according to
+(Conventional Commits)(https://www.conventionalcommits.org). See more details below._
+
 1. Fork the project.
 2. Make your changes.
 3. Make sure all tests pass: `yarn test`
 4. Make sure it passes linting: `yarn lint`
 5. Make sure it's formatted properly: `yarn format`
 6. Submit a PR and explain your changes.
+
+### Conventional Commits
+
+We use (Conventional Commits)(https://www.conventionalcommits.org), Angular convention.
+
+- `feat:` - New feature.
+- `fix:` - Fix a bug.
+- `refactor:` - Refactoring, no breaking changes, just improving code.
+- `style:` - Styling changes.
+- `test:` - Automated tests.
+- `chore:` - Infrastructure and tooling.
+- `docs:` - Documentation.
 
 ## Credits
 
