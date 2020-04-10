@@ -26,7 +26,7 @@ header {
 }
 
 footer {
-  position: absolute;
+  position: fixed;
   box-sizing: content-box;
   padding: 0.5rem;
   filter: opacity(30%);
