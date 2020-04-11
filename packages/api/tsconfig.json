@@ -9,7 +9,9 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
-  "references": [{
-    "path": "../core"
-  }]
+  "references": [
+    {
+      "path": "../core"
+    }
+  ]
 }

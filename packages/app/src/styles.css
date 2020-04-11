@@ -15,7 +15,6 @@ body {
   color: var(--white);
   font-family: 'Lato', sans-serif;
   font-weight: 300;
-  font-size: 10px;
 }
 
 header {
@@ -27,7 +26,7 @@ header {
 }
 
 footer {
-  position: absolute;
+  position: fixed;
   box-sizing: content-box;
   padding: 0.5rem;
   filter: opacity(30%);
@@ -45,14 +44,13 @@ footer {
 
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10em, auto));
+  grid-template-columns: repeat(auto-fit, minmax(10.2em, auto));
   grid-gap: 2em;
   align-items: center;
   text-align: center;
 }
 
 .wrapper>div {
-  font-size: 1.5em;
   filter: contrast(80%);
   border-top: 1px solid var(--gold);
   border-radius: 10px;
