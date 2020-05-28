@@ -8,6 +8,7 @@
     "packages/api",
     "packages/app"
   ],
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:gaui/covid19.git"
