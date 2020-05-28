@@ -15,9 +15,6 @@
     "url": "https://github.com/gaui/covid19.git",
     "directory": "packages/core"
   },
-  "engines": {
-    "node": "^13.0.0"
-  },
   "scripts": {
     "build": "microbundle --external isomorphic-unfetch,unfetch,cheerio"
   },

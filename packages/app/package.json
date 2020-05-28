@@ -15,9 +15,6 @@
     "url": "https://github.com/gaui/covid19.git",
     "directory": "packages/app"
   },
-  "engines": {
-    "node": "^13.0.0"
-  },
   "scripts": {
     "start": "webpack-dev-server --config configs/webpack.web.config.js",
     "build": "yarn build:web && yarn build:chrome",
