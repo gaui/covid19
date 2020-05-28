@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.1.2
+
+### Core
+
+- fix: Use V2 of NovelCOVID API #35
+
+### App
+
+- fix: Use `is-IS` NumberFormat locale instead of `de-DE`
+
+### Other
+
+- Added fields to `package.json` (repository, engines, license)
+- Added Node.js and Yarn version restrictions
+
 ## 1.1.1
 
 ### App
