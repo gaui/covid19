@@ -8,6 +8,10 @@
     "packages/api",
     "packages/app"
   ],
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:gaui/covid19.git"
+  },
   "scripts": {
     "install": "lerna bootstrap --use-workspaces",
     "build": "lerna run build --parallel --stream",
