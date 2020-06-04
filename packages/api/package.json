@@ -44,7 +44,7 @@
     "reflect-metadata": "0.1.13",
     "rimraf": "3.0.2",
     "rxjs": "6.5.4",
-    "apollo-server-express": "2.14.0"
+    "apollo-server-express": "2.14.2"
   },
   "peerDependencies": {
     "@gaui/covid19-core": "1.0.0"
