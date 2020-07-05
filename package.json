@@ -36,7 +36,7 @@
     "@babel/preset-react": "7.10.1",
     "@babel/preset-typescript": "7.10.1",
     "fetch-mock": "9.3.1",
-    "graphql": "14.6.0",
+    "graphql": "15.3.0",
     "graphql-tools": "4.0.7",
     "isomorphic-unfetch": "3.0.0",
     "ramda": "0.27.0",
