@@ -20,7 +20,7 @@
     "build": "nest build",
     "package": "sh -c '(cd $INIT_CWD && ./build.sh srv api)'",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
+    "start": "yarn start:dev",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",

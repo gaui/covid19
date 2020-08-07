@@ -19,6 +19,7 @@
   },
   "scripts": {
     "install": "lerna bootstrap --use-workspaces",
+    "start": "lerna run start --parallel --stream",
     "build": "lerna run build --parallel --stream",
     "test": "jest -i",
     "test:ci": "jest -i --coverage --no-cache --json --outputFile=test-results.json",
