@@ -1,8 +1,8 @@
 import fetchMock from 'fetch-mock';
 import {
   Covid19ProviderConfig,
-  Covid19ProviderCountryStats
-} from '../../types/schemas';
+  Covid19ProviderCountryStats,
+} from '../../schema';
 
 describe('Provider (is)', () => {
   let config: Covid19ProviderConfig;
@@ -12,7 +12,8 @@ describe('Provider (is)', () => {
   beforeAll(async () => {
     config = (await import('./config')).default;
     getData = (await import('.')).getData;
-    mockData = (await import('./__mocks__/covid-is.data.html')).default;
+    mockData = (await import('./__mocks__/covid-is.data.html'))
+      .default;
   });
 
   beforeEach(() => {
@@ -31,7 +32,7 @@ describe('Provider (is)', () => {
       quarantineIn: 5275,
       quarantinePost: 11679,
       recovered: 396,
-      samples: 23640
+      samples: 23640,
     });
   });
 });

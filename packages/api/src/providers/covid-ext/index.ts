@@ -1,9 +1,9 @@
 import config from './config';
 import * as R from 'ramda';
 import { Covid19Stats } from './types';
-import { Covid19ProviderCountryStats } from '../../types/schemas';
+import { Covid19ProviderCountryStats } from '../../schema';
 
-const getRemoteData = () => fetch(config.url).then(r => r.json());
+const getRemoteData = () => fetch(config.url).then((r) => r.json());
 
 const filter: (data: Covid19Stats) => Covid19ProviderCountryStats = (
   data: Covid19Stats
@@ -15,7 +15,7 @@ const filter: (data: Covid19Stats) => Covid19ProviderCountryStats = (
     'todayDeaths',
     'recovered',
     'active',
-    'critical'
+    'critical',
   ])(data);
 
 export const getData = async (): Promise<Covid19ProviderCountryStats> =>

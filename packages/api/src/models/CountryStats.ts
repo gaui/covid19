@@ -1,5 +1,5 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
-import { Covid19ProviderCountryStats } from '../../../core';
+import { Covid19ProviderCountryStats } from '../schema';
 
 @ObjectType({ description: 'Country statistics' })
 export class CountryStats implements Covid19ProviderCountryStats {

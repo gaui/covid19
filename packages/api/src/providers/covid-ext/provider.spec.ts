@@ -1,5 +1,5 @@
 import fetchMock from 'fetch-mock';
-import { Covid19ProviderConfig } from '../../types/schemas';
+import { Covid19ProviderConfig } from '../../schema';
 
 describe('Provider (ext)', () => {
   let config: Covid19ProviderConfig;
@@ -27,7 +27,7 @@ describe('Provider (ext)', () => {
         flag:
           'https://raw.githubusercontent.com/NovelCOVID/API/master/assets/flags/is.png',
         iso3: 'ISL',
-        iso2: 'IS'
+        iso2: 'IS',
       },
       cases: 890,
       todayCases: 88,
@@ -37,7 +37,7 @@ describe('Provider (ext)', () => {
       active: 791,
       critical: 18,
       casesPerOneMillion: 2608,
-      deathsPerOneMillion: 6
+      deathsPerOneMillion: 6,
     });
 
     // Act
@@ -51,7 +51,7 @@ describe('Provider (ext)', () => {
       todayDeaths: 0,
       recovered: 97,
       active: 791,
-      critical: 18
+      critical: 18,
     });
   });
 });

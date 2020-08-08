@@ -27,7 +27,6 @@
   "dependencies": {
     "@apollo/react-hooks": "3.1.5",
     "apollo-boost": "0.4.9",
-    "@gaui/covid19-core": "*",
     "@reduxjs/toolkit": "1.3.6",
     "react-redux": "7.2.0",
     "react": "16.13.1",

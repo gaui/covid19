@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
-import { provider } from '../../core';
+import { getData as provider } from './providers';
 import { CountryStatsResolver } from './resolvers/stats';
 
 @Module({

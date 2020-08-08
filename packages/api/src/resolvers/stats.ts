@@ -1,7 +1,8 @@
 import { Resolver, Query } from '@nestjs/graphql';
 import { Inject } from '@nestjs/common';
 import { CountryStats } from '../models/CountryStats';
-import { provider, Covid19ProviderCountryStats } from '../../../core';
+import { Covid19ProviderCountryStats } from '../schema';
+import { getData as provider } from '../providers';
 
 @Resolver(() => CountryStats)
 export class CountryStatsResolver {

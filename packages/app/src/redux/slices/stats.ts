@@ -1,6 +1,6 @@
 import { createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit';
 import { StatsState } from '../../types/components';
-import { Covid19ProviderCountryStats } from '../../../../core';
+import { Covid19ProviderCountryStats } from '../../types/schema';
 import { gql } from 'apollo-boost';
 import { createApolloClient } from '../../utils/createApolloClient';
 
