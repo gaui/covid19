@@ -1,7 +1,7 @@
 import { Covid19ProviderConfig } from '../../schema';
 
 const config: Covid19ProviderConfig = {
-  url: 'https://infogram.com/covid-19-tolfraedi-1h1749mm0jyl6zj',
+  url: 'https://infogram.com/juni-covid-isl-1hzj4ozg8nqo2pw',
 };
 
 export default config;
