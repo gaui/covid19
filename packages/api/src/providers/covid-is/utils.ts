@@ -12,11 +12,11 @@ const labelMap = {
   'staðfest smit': 'cases',
   'í sóttkví': 'quarantineIn',
   'lokið sóttkví': 'quarantinePost',
-  'í einangrun': 'isolated',
+  'Í einangrun': 'isolated',
   'á sjúkrahúsi': 'hospitalized',
   'á gjörgæslu': 'critical',
   'náð bata': 'recovered',
-  sýni: 'samples'
+  'sýni, innanlands': 'samples',
 };
 
 export const labelMapper: (array: [string, number][]) => Covid19Stats[][] = (
