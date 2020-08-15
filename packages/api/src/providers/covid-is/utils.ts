@@ -33,7 +33,9 @@ const getValueFromHTML: (val: string) => string = R.tryCatch<string>(
 );
 
 const getPath: (x: InfographicData) => unknown[] = R.compose(
-  R.map(R.path(['props', 'chartData', 'data', 0, 0])),
+  R.map(R.path(['data', 0, 0])),
+  R.filter(R.propEq('chart_type_nr', 23)),
+  R.map(R.path(['props', 'chartData'])),
   R.filter(R.propEq('type', 'CHART')),
   Object.values,
   R.pathOr({} as ElementsContentContent, [
