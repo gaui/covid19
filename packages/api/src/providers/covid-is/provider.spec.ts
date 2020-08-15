@@ -29,6 +29,7 @@ describe('Provider (is)', () => {
       critical: 0,
       hospitalized: 1,
       isolated: 119,
+      isolatedPost: 1870,
       quarantineIn: 605,
       quarantinePost: 23773,
       samples: 81659,

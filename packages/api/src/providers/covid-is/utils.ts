@@ -13,6 +13,7 @@ const labelMap = {
   'í sóttkví': 'quarantineIn',
   'lokið sóttkví': 'quarantinePost',
   'Í einangrun': 'isolated',
+  'lokið einangrun': 'isolatedPost',
   'á sjúkrahúsi': 'hospitalized',
   'á gjörgæslu': 'critical',
   'náð bata': 'recovered',
