@@ -32,6 +32,10 @@ const getValueFromHTML: (val: string) => string = R.tryCatch<string>(
   }
 );
 
+/*
+jq:
+.elements.content.content.entities | to_entries | map(select(.value.type=="CHART" and .value.props.chartData.chart_type_nr==23)) | from_entries | keys[] as $k | .[$k].props.chartData.data[0][0]
+*/
 const getPath: (x: InfographicData) => unknown[] = R.compose(
   R.map(R.path(['data', 0, 0])),
   R.filter(R.propEq('chart_type_nr', 23)),
