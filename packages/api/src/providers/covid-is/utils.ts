@@ -18,6 +18,7 @@ const labelMap = {
   'á gjörgæslu': 'critical',
   'náð bata': 'recovered',
   'sýni, innanlands': 'samples',
+  'sýni, landamæri': 'samplesBorder',
 };
 
 export const labelMapper: (array: [string, number][]) => Covid19Stats[][] = (

@@ -33,6 +33,7 @@ describe('Provider (is)', () => {
       quarantineIn: 605,
       quarantinePost: 23773,
       samples: 81659,
+      samplesBorder: 95937,
     });
   });
 });
