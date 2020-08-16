@@ -4,9 +4,6 @@
   "compileOnSave": true,
   "references": [
     {
-      "path": "./packages/core"
-    },
-    {
       "path": "./packages/app"
     },
     {

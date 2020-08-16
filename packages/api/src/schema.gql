@@ -34,11 +34,17 @@ type CountryStats {
   """In isolation"""
   isolated: Int
 
+  """Finished isolation"""
+  isolatedPost: Int
+
   """In hospital"""
   hospitalized: Int
 
-  """Total samples"""
+  """Total domestic samples"""
   samples: Int
+
+  """Total border samples"""
+  samplesBorder: Int
 }
 
 type Query {

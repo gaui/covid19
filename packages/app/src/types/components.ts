@@ -1,4 +1,4 @@
-import { Covid19ProviderCountryStats } from '../../../core';
+import { Covid19ProviderCountryStats } from './schema';
 
 export type StatsState = {
   loading: boolean;

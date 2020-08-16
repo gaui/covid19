@@ -4,5 +4,5 @@ module.exports = {
     '^.+\\.(html|svg)?$': 'jest-raw-loader'
   },
   coverageDirectory: '.coverage',
-  testPathIgnorePatterns: ['/node_modules/', '/lib/', '/__mocks__/']
+  testPathIgnorePatterns: ['/node_modules/', '/lib/', '/__mocks__/', '/dist/']
 };

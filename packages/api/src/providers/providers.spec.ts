@@ -10,9 +10,9 @@ jest.mock('./covid-is', () => ({
       recovered: 157,
       critical: 10,
       isolated: 927,
-      cases: 1086
+      cases: 1086,
     })
-  )
+  ),
 }));
 
 jest.mock('./covid-ext', () => ({
@@ -24,9 +24,9 @@ jest.mock('./covid-ext', () => ({
       todayDeaths: 0,
       recovered: 157,
       active: 927,
-      critical: 25
+      critical: 25,
     })
-  )
+  ),
 }));
 
 describe('Providers', () => {
@@ -48,7 +48,7 @@ describe('Providers', () => {
       critical: 10,
       isolated: 927,
       active: 927,
-      cases: 1086
+      cases: 1086,
     });
   });
 });

@@ -3,6 +3,6 @@ const jestBaseConfig = require('../../jest.base.config');
 
 module.exports = {
   ...jestBaseConfig,
-  displayName: 'core',
-  setupFilesAfterEnv: ['./jest.setup.js']
+  displayName: 'api',
+  testEnvironment: 'node',
 };

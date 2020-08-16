@@ -1,5 +1,5 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
-import { Covid19ProviderCountryStats } from '../../../core';
+import { Covid19ProviderCountryStats } from '../schema';
 
 @ObjectType({ description: 'Country statistics' })
 export class CountryStats implements Covid19ProviderCountryStats {
@@ -33,9 +33,15 @@ export class CountryStats implements Covid19ProviderCountryStats {
   @Field(() => Int, { description: 'In isolation', nullable: true })
   isolated?: number;
 
+  @Field(() => Int, { description: 'Finished isolation', nullable: true })
+  isolatedPost?: number;
+
   @Field(() => Int, { description: 'In hospital', nullable: true })
   hospitalized?: number;
 
-  @Field(() => Int, { description: 'Total samples', nullable: true })
+  @Field(() => Int, { description: 'Total domestic samples', nullable: true })
   samples?: number;
+
+  @Field(() => Int, { description: 'Total border samples', nullable: true })
+  samplesBorder?: number;
 }

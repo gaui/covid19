@@ -64,9 +64,11 @@ const StatsCardContainer = ({
     deaths,
     recovered,
     samples,
+    samplesBorder,
     quarantineIn,
     quarantinePost,
-    isolated
+    isolated,
+    isolatedPost,
   } = statsState.stats;
 
   return (
@@ -98,7 +100,16 @@ const StatsCardContainer = ({
         title="Recovered cases"
         count={recovered}
       />
-      <StatsCard icon={<SamplesSVG />} title="Samples taken" count={samples} />
+      <StatsCard
+        icon={<SamplesSVG />}
+        title="Domestic samples taken"
+        count={samples}
+      />
+      <StatsCard
+        icon={<SamplesSVG />}
+        title="Border samples taken"
+        count={samplesBorder}
+      />
       <StatsCard
         icon={<QuarantineInSVG />}
         title="In quarantine"
@@ -110,6 +121,11 @@ const StatsCardContainer = ({
         count={quarantinePost}
       />
       <StatsCard icon={<IsolatedSVG />} title="In isolation" count={isolated} />
+      <StatsCard
+        icon={<IsolatedSVG />}
+        title="Finished isolation"
+        count={isolatedPost}
+      />
     </div>
   );
 };

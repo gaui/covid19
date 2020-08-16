@@ -1,5 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { provider, Covid19ProviderCountryStats } from '../../core';
+import { Covid19ProviderCountryStats } from './schema';
+import { getData as provider } from './providers';
 
 @Injectable()
 export class AppService {

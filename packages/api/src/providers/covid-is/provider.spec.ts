@@ -1,8 +1,8 @@
 import fetchMock from 'fetch-mock';
 import {
   Covid19ProviderConfig,
-  Covid19ProviderCountryStats
-} from '../../types/schemas';
+  Covid19ProviderCountryStats,
+} from '../../schema';
 
 describe('Provider (is)', () => {
   let config: Covid19ProviderConfig;
@@ -24,14 +24,15 @@ describe('Provider (is)', () => {
     fetchMock.get(config.url, mockData);
     const data = await getData();
     expect(data).toEqual({
-      cases: 1417,
-      critical: 11,
-      hospitalized: 42,
-      isolated: 1017,
-      quarantineIn: 5275,
-      quarantinePost: 11679,
-      recovered: 396,
-      samples: 23640
+      cases: 1999,
+      critical: 0,
+      hospitalized: 1,
+      isolated: 119,
+      isolatedPost: 1870,
+      quarantineIn: 605,
+      quarantinePost: 23773,
+      samples: 81659,
+      samplesBorder: 95937,
     });
   });
 });

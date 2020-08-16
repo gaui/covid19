@@ -1,6 +1,6 @@
 import { createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit';
 import { StatsState } from '../../types/components';
-import { Covid19ProviderCountryStats } from '../../../../core';
+import { Covid19ProviderCountryStats } from '../../types/schema';
 import { gql } from 'apollo-boost';
 import { createApolloClient } from '../../utils/createApolloClient';
 
@@ -17,16 +17,18 @@ const STATS_QUERY = gql`
       deaths
       recovered
       samples
+      samplesBorder
       quarantineIn
       quarantinePost
       isolated
+      isolatedPost
     }
   }
 `;
 
 export const initialState: StatsState = {
   loading: false,
-  stats: null
+  stats: null,
 };
 
 const statsSlice = createSlice({
@@ -40,8 +42,8 @@ const statsSlice = createSlice({
     updatedStats(state: StatsState, action: StatsPayloadAction) {
       state.loading = false;
       state.stats = action.payload;
-    }
-  }
+    },
+  },
 });
 
 export default statsSlice;

@@ -7,7 +7,7 @@ export const createApolloClient = () => {
   if (!apolloClient)
     apolloClient = new ApolloClient({
       uri: process.env.COVID_API_URL,
-      fetch: fetch || unfetch
+      fetch: fetch || unfetch,
     });
 
   return apolloClient;

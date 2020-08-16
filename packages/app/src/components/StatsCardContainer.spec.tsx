@@ -10,7 +10,7 @@ import fetchMock from 'fetch-mock';
 
 const mockGraphQLUrl = 'http://covid';
 Object.defineProperty(process.env, 'COVID_API_URL', {
-  value: mockGraphQLUrl
+  value: mockGraphQLUrl,
 });
 
 const mockData = {
@@ -23,11 +23,13 @@ const mockData = {
     deaths: 4,
     recovered: 428,
     samples: 25394,
+    samplesBorder: 14530,
     quarantineIn: 5511,
     quarantinePost: 11657,
     isolated: 1054,
-    __typename: 'CountryStats'
-  }
+    isolatedPost: 428,
+    __typename: 'CountryStats',
+  },
 };
 
 jest.useFakeTimers();
@@ -44,7 +46,7 @@ describe('<StatsCardContainer /> component', () => {
       mockStatsStore = configureStore({ reducer: rootReducer });
 
       fetchMock.post(mockGraphQLUrl, {
-        data: mockData
+        data: mockData,
       });
 
       await act(async () => {
@@ -84,7 +86,7 @@ describe('<StatsCardContainer /> component', () => {
       mockStatsStore = configureStore({ reducer: rootReducer });
 
       fetchMock.post(mockGraphQLUrl, {
-        data: mockData
+        data: mockData,
       });
 
       await act(async () => {

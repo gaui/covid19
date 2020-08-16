@@ -27,22 +27,7 @@ This is a GraphQL API that's built with [NestJS](https://nestjs.com) and uses th
 
 ### App
 
-The application is seperated into two:
-
-- React web application
-- Chrome extension
-
-#### Web
-
-The web application is built with React and uses Redux Toolkit for state management.
-
-It's published [here](https://covid.gaui.is).
-
-#### Chrome
-
-The Chrome extension is built upon the web application, and is bundled into a Chrome extension.
-
-It's published in the [Chrome Web Store](https://chrome.google.com/webstore/detail/kbifdhlakolnkoogejddnjojcjjiejig).
+The web application is built with React and uses Redux Toolkit for state management and Apollo Client as a GraphQL client.
 
 ## Collaboration
 

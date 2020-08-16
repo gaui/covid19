@@ -4,16 +4,16 @@ export const createSVG = (svg: string) => {
   const svgContainer = document.createElement('div');
   svgContainer.innerHTML = svg;
   const svgElement = (svgContainer.firstElementChild as Element) || {
-    attributes: {}
+    attributes: {},
   };
   const props = Object.fromEntries(
-    Array.from(svgElement.attributes).map(x => [x.name, x.value])
+    Array.from(svgElement.attributes).map((x) => [x.name, x.value])
   );
 
   // eslint-disable-next-line react/display-name
   return () =>
     React.createElement('svg', {
       ...props,
-      dangerouslySetInnerHTML: { __html: svgElement.innerHTML }
+      dangerouslySetInnerHTML: { __html: svgElement.innerHTML },
     });
 };
