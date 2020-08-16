@@ -1,5 +1,5 @@
 import config from './config';
-import * as R from 'ramda';
+import R from 'ramda';
 import { Covid19Stats } from './types';
 import { Covid19ProviderCountryStats } from '../../schema';
 

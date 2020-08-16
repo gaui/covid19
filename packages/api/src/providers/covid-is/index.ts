@@ -10,6 +10,4 @@ export const getData = async (): Promise<Covid19ProviderCountryStats> =>
     .then(parse)
     .then(filter as never)
     .then(labelMapper as never)
-    .then(
-      Object.fromEntries as (e: unknown[][]) => Covid19ProviderCountryStats
-    );
+    .then(Object.fromEntries as never);
