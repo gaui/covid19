@@ -33,6 +33,9 @@ export class CountryStats implements Covid19ProviderCountryStats {
   @Field(() => Int, { description: 'In isolation', nullable: true })
   isolated?: number;
 
+  @Field(() => Int, { description: 'Finished isolation', nullable: true })
+  isolatedPost?: number;
+
   @Field(() => Int, { description: 'In hospital', nullable: true })
   hospitalized?: number;
 

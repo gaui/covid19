@@ -20,6 +20,7 @@ const STATS_QUERY = gql`
       quarantineIn
       quarantinePost
       isolated
+      isolatedPost
     }
   }
 `;

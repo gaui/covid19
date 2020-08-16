@@ -34,6 +34,9 @@ type CountryStats {
   """In isolation"""
   isolated: Int
 
+  """Finished isolation"""
+  isolatedPost: Int
+
   """In hospital"""
   hospitalized: Int
 

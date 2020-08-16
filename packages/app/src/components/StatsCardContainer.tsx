@@ -66,7 +66,8 @@ const StatsCardContainer = ({
     samples,
     quarantineIn,
     quarantinePost,
-    isolated
+    isolated,
+    isolatedPost,
   } = statsState.stats;
 
   return (
@@ -110,6 +111,11 @@ const StatsCardContainer = ({
         count={quarantinePost}
       />
       <StatsCard icon={<IsolatedSVG />} title="In isolation" count={isolated} />
+      <StatsCard
+        icon={<IsolatedSVG />}
+        title="Finished isolation"
+        count={isolatedPost}
+      />
     </div>
   );
 };

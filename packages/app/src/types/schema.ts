@@ -9,6 +9,7 @@ export interface Covid19ProviderCountryStats {
   quarantineIn?: number;
   quarantinePost?: number;
   isolated?: number;
+  isolatedPost?: number;
   hospitalized?: number;
   samples?: number;
 }
