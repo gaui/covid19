@@ -1,2 +1,2 @@
 export const thousandSeperator = (num: string | number) =>
-  new Intl.NumberFormat('is-IS').format(Number(num));
+  new Intl.NumberFormat('de-DE').format(Number(num));
