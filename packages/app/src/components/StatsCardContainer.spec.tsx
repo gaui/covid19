@@ -23,6 +23,7 @@ const mockData = {
     deaths: 4,
     recovered: 428,
     samples: 25394,
+    samplesBorder: 14530,
     quarantineIn: 5511,
     quarantinePost: 11657,
     isolated: 1054,

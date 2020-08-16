@@ -64,6 +64,7 @@ const StatsCardContainer = ({
     deaths,
     recovered,
     samples,
+    samplesBorder,
     quarantineIn,
     quarantinePost,
     isolated,
@@ -99,7 +100,16 @@ const StatsCardContainer = ({
         title="Recovered cases"
         count={recovered}
       />
-      <StatsCard icon={<SamplesSVG />} title="Samples taken" count={samples} />
+      <StatsCard
+        icon={<SamplesSVG />}
+        title="Domestic samples taken"
+        count={samples}
+      />
+      <StatsCard
+        icon={<SamplesSVG />}
+        title="Border samples taken"
+        count={samplesBorder}
+      />
       <StatsCard
         icon={<QuarantineInSVG />}
         title="In quarantine"

@@ -40,8 +40,11 @@ type CountryStats {
   """In hospital"""
   hospitalized: Int
 
-  """Total samples"""
+  """Total domestic samples"""
   samples: Int
+
+  """Total border samples"""
+  samplesBorder: Int
 }
 
 type Query {

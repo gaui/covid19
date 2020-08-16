@@ -12,6 +12,7 @@ export interface Covid19ProviderCountryStats {
   isolatedPost?: number;
   hospitalized?: number;
   samples?: number;
+  samplesBorder?: number;
 }
 
 export interface Covid19ProviderConfig {

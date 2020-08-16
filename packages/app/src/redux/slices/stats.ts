@@ -17,6 +17,7 @@ const STATS_QUERY = gql`
       deaths
       recovered
       samples
+      samplesBorder
       quarantineIn
       quarantinePost
       isolated
