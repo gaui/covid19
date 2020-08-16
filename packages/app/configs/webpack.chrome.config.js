@@ -17,8 +17,8 @@ module.exports = {
       template: 'templates/manifest.json.ejs',
       filename: 'manifest.json',
       inject: false,
-      minify: false
+      minify: false,
     }),
-    new CopyWebPackPlugin([{ from: 'templates/icon.png' }])
-  ]
+    new CopyWebPackPlugin([{ from: 'templates/icon.png' }]),
+  ],
 };

@@ -28,7 +28,7 @@ const STATS_QUERY = gql`
 
 export const initialState: StatsState = {
   loading: false,
-  stats: null
+  stats: null,
 };
 
 const statsSlice = createSlice({
@@ -42,8 +42,8 @@ const statsSlice = createSlice({
     updatedStats(state: StatsState, action: StatsPayloadAction) {
       state.loading = false;
       state.stats = action.payload;
-    }
-  }
+    },
+  },
 });
 
 export default statsSlice;

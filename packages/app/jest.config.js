@@ -5,5 +5,5 @@ module.exports = {
   ...jestBaseConfig,
   displayName: 'app',
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['./jest.setup.js']
+  setupFilesAfterEnv: ['./jest.setup.js'],
 };

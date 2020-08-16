@@ -9,6 +9,6 @@ async function bootstrap() {
 }
 bootstrap();
 
-process.on('SIGINT', function() {
+process.on('SIGINT', function () {
   process.exit();
 });

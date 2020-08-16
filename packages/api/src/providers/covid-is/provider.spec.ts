@@ -12,8 +12,7 @@ describe('Provider (is)', () => {
   beforeAll(async () => {
     config = (await import('./config')).default;
     getData = (await import('.')).getData;
-    mockData = (await import('./__mocks__/covid-is.data.html'))
-      .default;
+    mockData = (await import('./__mocks__/covid-is.data.html')).default;
   });
 
   beforeEach(() => {

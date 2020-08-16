@@ -12,7 +12,7 @@ export class CountryStatsResolver {
 
   @Query(() => CountryStats, {
     name: 'stats',
-    description: 'Gets COVID-19 statistics'
+    description: 'Gets COVID-19 statistics',
   })
   async getStats(): Promise<Covid19ProviderCountryStats> {
     return this.covid19Provider();

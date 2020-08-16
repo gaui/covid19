@@ -10,12 +10,12 @@ import { CountryStatsResolver } from './resolvers/stats';
       path: '/',
       useGlobalPrefix: false,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
-      playground: true
-    })
+      playground: true,
+    }),
   ],
   providers: [
     { provide: 'COVID19Provider', useValue: provider },
-    CountryStatsResolver
-  ]
+    CountryStatsResolver,
+  ],
 })
 export class AppModule {}

@@ -8,24 +8,24 @@ const rootDir = require('./webpack.base.config').rootDir;
 module.exports = {
   ...baseConfig,
   entry: {
-    main: path.join(rootDir, 'src', 'index.tsx')
+    main: path.join(rootDir, 'src', 'index.tsx'),
   },
   output: {
     filename: '[name].[hash:8].js',
-    path: path.join(rootDir, 'dist', 'web')
+    path: path.join(rootDir, 'dist', 'web'),
   },
   plugins: [
     ...baseConfig.plugins,
     new HtmlWebpackPlugin({
       title: 'COVID-19',
       template: 'templates/index.html.ejs',
-      filename: 'index.html'
-    })
+      filename: 'index.html',
+    }),
   ],
   optimization: {
     runtimeChunk: 'single',
     splitChunks: {
-      chunks: 'all'
-    }
-  }
+      chunks: 'all',
+    },
+  },
 };
